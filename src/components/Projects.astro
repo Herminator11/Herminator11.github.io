@@ -1,0 +1,30 @@
+---
+import SectionShell from './SectionShell.astro';
+import FilterChips from './FilterChips.astro';
+import ProjectCard from './ProjectCard.astro';
+import ProjectDialog from './ProjectDialog.astro';
+import { getProjects, getCategories } from '../lib/content';
+import { getStrings, type Locale } from '../lib/i18n';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = getStrings(locale);
+const projects = await getProjects(locale);
+const allCats = await getCategories(locale);
+const used = new Set(projects.flatMap((p) => p.categories));
+const cats = allCats.filter((c) => used.has(c.id));
+const labels = Object.fromEntries(allCats.map((c) => [c.id, c.label]));
+---
+
+<SectionShell id="projects" title={t.projects.heading} wide>
+  <FilterChips categories={cats} t={t} total={projects.length} />
+  <ul class="grid" data-grid>
+    {projects.map((p, i) => <ProjectCard project={p} labels={labels} t={t} eager={i < 2} />)}
+  </ul>
+</SectionShell>
+<ProjectDialog projects={projects} labels={labels} t={t} />
+
+<style>
+  .grid { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; gap: 3rem 2rem; grid-template-columns: minmax(0, 1fr); align-items: start; }
+  @media (min-width: 40rem) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 64rem) { .grid { grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-flow: dense; row-gap: 4rem; } }
+</style>

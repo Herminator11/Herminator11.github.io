@@ -1,0 +1,17 @@
+---
+// Signature detail: a hairline along the left edge with a vermilion dot that tracks the page position.
+// Ticks are added by scripts/rail.ts from the real section offsets. Decorative; header carries the nav.
+---
+
+<div class="rail" aria-hidden="true" data-rail>
+  <span class="rail__dot" data-rail-dot></span>
+</div>
+
+<style>
+  .rail { display: none; }
+  @media (min-width: 64rem) and (pointer: fine) {
+    .rail { display: block; position: fixed; z-index: 40; left: calc(var(--gutter) / 2 - 0.5px); top: 5rem; bottom: 2rem; width: 1px; background: var(--rule); pointer-events: none; }
+    .rail__dot { position: absolute; left: -3px; top: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); will-change: transform; }
+    :global(.rail__tick) { position: absolute; left: -2px; width: 5px; height: 1px; background: var(--ink-muted); opacity: 0.7; }
+  }
+</style>

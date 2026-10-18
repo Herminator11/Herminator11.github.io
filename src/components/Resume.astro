@@ -1,0 +1,75 @@
+---
+import SectionShell from './SectionShell.astro';
+import { getResume, getSite } from '../lib/content';
+import { getStrings, type Locale } from '../lib/i18n';
+import { formatRange } from '../lib/dates';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = getStrings(locale);
+const r = await getResume(locale);
+const site = await getSite(locale);
+const range = (a: string, b: string) => formatRange(a, b, locale, t.resume.present);
+const groups = [
+  { key: 'experience', title: t.resume.experience, items: r.experience.map((e) => ({ head: e.role, org: e.org, loc: e.location, when: range(e.start, e.end), current: e.end === 'present', summary: e.summary, bullets: e.bullets })) },
+  { key: 'education', title: t.resume.education, items: r.education.map((e) => ({ head: e.degree, org: e.org, loc: e.location, when: range(e.start, e.end), current: e.end === 'present', summary: e.summary, bullets: [] as string[] })) },
+  ...(r.activities.length ? [{ key: 'activities', title: t.resume.activities, items: r.activities.map((a) => ({ head: a.title, org: a.org, loc: undefined as string | undefined, when: a.period, current: false, summary: a.summary, bullets: [] as string[] })) }] : []),
+];
+---
+
+<SectionShell id="resume" title={t.resume.heading}>
+  <div class="resume">
+    <a class="btn" href={site.resume} download data-reveal>{t.resume.download}</a>
+    {groups.map((g) => (
+      <section class="group" aria-labelledby={`g-${g.key}`} data-reveal>
+        <h3 id={`g-${g.key}`} class="group__title">{g.title}</h3>
+        <ol class="timeline">
+          {g.items.map((it) => (
+            <li class:list={['entry', it.current && 'entry--current']}>
+              <p class="t-meta entry__when">{it.when}</p>
+              <div class="entry__what">
+                <h4 class="entry__head">{it.head}</h4>
+                {(it.org || it.loc) && <p class="entry__org">{[it.org, it.loc].filter(Boolean).join(', ')}</p>}
+                {it.summary && <p class="entry__sum">{it.summary}</p>}
+                {it.bullets.length > 0 && <ul>{it.bullets.map((b) => <li>{b}</li>)}</ul>}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+    <section class="group" aria-labelledby="g-skills" data-reveal>
+      <h3 id="g-skills" class="group__title">{t.resume.skills}</h3>
+      <dl class="skills">
+        {r.skills.map((s) => (
+          <div class="skills__row"><dt>{s.group}</dt><dd>{s.items.join(', ')}</dd></div>
+        ))}
+      </dl>
+    </section>
+  </div>
+</SectionShell>
+
+<style>
+  .resume { display: grid; gap: 4.5rem; }
+  .btn { justify-self: start; display: inline-block; padding: 0.8rem 1.25rem; background: var(--ink); color: var(--bg); text-decoration: none; border-radius: var(--radius-sm); font-weight: 500; font-size: var(--text-sm); transition: transform var(--dur-1) var(--ease-out), opacity var(--dur-1); }
+  .btn:hover { opacity: 0.88; }
+  .btn:active { transform: scale(0.98); }
+  .group__title { font-family: var(--font-sans); font-size: var(--text-sm); font-weight: 500; color: var(--ink-muted); letter-spacing: 0; margin-bottom: 1.5rem; line-height: 1.3; }
+  .timeline { list-style: none; margin: 0; padding: 0 0 0 1.5rem; border-left: 1px solid var(--rule); display: grid; gap: 2.5rem; }
+  .entry { position: relative; display: grid; gap: 0.5rem; }
+  .entry::before { content: ''; position: absolute; left: calc(-1.5rem - 4px); top: 0.55rem; width: 7px; height: 7px; border-radius: 50%; background: var(--bg); border: 1px solid var(--ink-muted); }
+  .entry--current::before { background: var(--accent); border-color: var(--accent); }
+  .entry__what { display: grid; gap: 0.35rem; max-width: 40rem; }
+  .entry__head { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: var(--text-lg); line-height: 1.15; }
+  .entry__org { color: var(--ink-muted); font-size: var(--text-sm); }
+  .entry__sum { margin-top: 0.25rem; }
+  .entry ul { margin: 0.5rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.35rem; }
+  .skills { margin: 0; display: grid; }
+  .skills__row { display: grid; gap: 0.25rem; padding-block: 1rem; border-top: 1px solid var(--rule); }
+  .skills dt { color: var(--ink-muted); font-size: var(--text-sm); }
+  .skills dd { margin: 0; }
+  @media (min-width: 48rem) {
+    .entry { grid-template-columns: 11rem 1fr; gap: 2rem; }
+    .skills__row { grid-template-columns: 11rem 1fr; gap: 2rem; }
+    .entry__when { padding-top: 0.35rem; }
+  }
+</style>

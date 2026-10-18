@@ -1,0 +1,24 @@
+---
+interface Props { statement: string; rest?: string; note?: string }
+const { statement, rest, note } = Astro.props;
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__inner">
+    {note && <p class="hero__note t-meta hero__line" style="--i: 0" role="note" data-translation-note>{note}</p>}
+    <h1 id="hero-title" class="t-hero hero__line" style="--i: 0">{statement}</h1>
+    {rest && <p class="hero__rest hero__line" style="--i: 1">{rest}</p>}
+  </div>
+</section>
+
+<style>
+  .hero { min-height: min(100svh, 62rem); display: flex; align-items: flex-end; padding-block: 9rem 4rem; }
+  .hero__inner { display: grid; gap: 2.5rem; }
+  .hero h1 { max-width: 14ch; }
+  :global(:lang(ko)) .hero h1 { max-width: 11em; }
+  .hero__note { max-width: 46ch; padding-left: 1rem; font-family: var(--font-sans); border-left: 1px solid var(--accent); text-transform: none; letter-spacing: 0; line-height: 1.6; color: var(--ink); }
+  .hero__rest { font-size: var(--text-lg); color: var(--ink-muted); max-width: 34ch; line-height: 1.4; }
+  /* The one orchestrated load moment on the page. */
+  .hero__line { animation: rise var(--dur-4) var(--ease-out) both; animation-delay: calc(var(--i) * 140ms + 60ms); }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+</style>

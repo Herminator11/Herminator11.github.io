@@ -1,0 +1,12 @@
+slug: cinemasub
+date: "2026-10"
+categories: [android]
+featured: true
+ai: true
+note:
+  en: "The local video player is built on the open-source Next Player (GPL-3.0); its licence is included in the project."
+  de: "Der lokale Videoplayer baut auf dem Open-Source-Player Next Player (GPL-3.0) auf; die Lizenz liegt dem Projekt bei."
+  ko: "로컬 동영상 플레이어는 오픈소스 Next Player(GPL-3.0)를 기반으로 하며, 해당 라이선스는 프로젝트에 포함되어 있습니다."
+stack: [Kotlin, Jetpack Compose, Room, Media3, TMDB, SubDL]
+links: {}
+placeholder: false

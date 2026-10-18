@@ -1,0 +1,61 @@
+---
+import Picture from './Picture.astro';
+import type { Project } from '../lib/content';
+import type { Strings } from '../lib/i18n';
+interface Props { project: Project; labels: Record<string, string>; t: Strings; eager?: boolean }
+const { project: p, labels, t, eager = false } = Astro.props;
+const wide = (p.cover?.ratio ?? 0) >= 1.55;
+const catLabels = p.categories.map((c) => labels[c]).filter(Boolean);
+---
+
+<li class:list={['card', wide && 'card--wide']} data-card data-categories={p.categories.join(' ')} data-slug={p.slug}>
+  <a class="card__link" href={`#${p.slug}`} data-project={p.slug}>
+    {p.cover ? (
+      <div class="card__media">
+        <Picture
+          img={p.cover.img}
+          alt=""
+          ratio={p.cover.ratio}
+          focal={p.cover.focal}
+          tone={p.cover.tone}
+          loading={eager ? 'eager' : 'lazy'}
+          sizes="(min-width: 64rem) 32vw, (min-width: 40rem) 46vw, 92vw"
+        />
+      </div>
+    ) : (
+      <div class="card__media card__media--text">
+        <h3 class="card__title card__title--big">{p.title}</h3>
+      </div>
+    )}
+    <div class="card__meta">
+      <p class="t-meta card__facts"><time datetime={p.date}>{p.year}</time><span>{catLabels.join(', ')}</span>{p.ai && <span class="card__ai">{t.projects.aiTag}</span>}</p>
+      {p.cover && <h3 class="card__title">{p.title}</h3>}
+      <p class="card__sum">{p.summary}</p>
+    </div>
+  </a>
+</li>
+
+<style>
+  .card { list-style: none; min-width: 0; }
+  .card--wide { grid-column: 1 / -1; }
+  .card[hidden] { display: none; }
+  .card__link { display: grid; gap: 1rem; text-decoration: none; transition: transform var(--dur-2) var(--ease-out); }
+  .card__link:active { transform: scale(0.985); }
+  .card__media { border-radius: var(--radius-md); overflow: hidden; background: var(--surface); }
+  .card__media :global(.pic) { transition: transform var(--dur-3) var(--ease-out); }
+  .card__link:hover .card__media :global(.pic) { transform: scale(1.025); }
+  .card__media--text { aspect-ratio: 4 / 3; display: flex; align-items: flex-end; padding: 1.5rem; border: 1px solid var(--rule); }
+  .card__title { font-size: var(--text-lg); line-height: 1.1; text-wrap: balance; }
+  .card__title--big { font-size: var(--text-xl); }
+  .card__meta { display: grid; gap: 0.35rem; }
+  .card__facts { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
+  .card__ai { color: var(--accent); }
+  .card__sum { color: var(--ink-muted); font-size: var(--text-sm); max-width: 36ch; }
+  @media (min-width: 40rem) {
+    .card--wide { grid-column: 1 / -1; }
+  }
+  @media (min-width: 64rem) {
+    .card { grid-column: span 4; }
+    .card--wide { grid-column: span 8; }
+  }
+</style>

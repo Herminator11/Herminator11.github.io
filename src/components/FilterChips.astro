@@ -1,0 +1,24 @@
+---
+import type { Strings } from '../lib/i18n';
+interface Props { categories: { id: string; label: string }[]; t: Strings; total: number }
+const { categories, t, total } = Astro.props;
+---
+
+<div class="filters">
+  <div class="chips" role="group" aria-label={t.projects.filter}>
+    <button class="chip" type="button" aria-pressed="true" data-filter="all">{t.projects.all}</button>
+    {categories.map((c) => <button class="chip" type="button" aria-pressed="false" data-filter={c.id}>{c.label}</button>)}
+  </div>
+  <p class="t-meta" aria-hidden="true" data-count-visible
+     data-one={t.projects.count_one} data-other={t.projects.count_other}>{total}</p>
+  <p class="sr-only" role="status" data-count-live></p>
+</div>
+
+<style>
+  .filters { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .chip { min-height: 2.5rem; padding: 0.4rem 1rem; border: 1px solid var(--rule); background: transparent; border-radius: var(--radius-sm); font-size: var(--text-sm); color: var(--ink-muted); transition: color var(--dur-1), border-color var(--dur-1), transform var(--dur-1) var(--ease-out); }
+  .chip:hover { color: var(--ink); border-color: var(--ink-muted); }
+  .chip:active { transform: scale(0.97); }
+  .chip[aria-pressed='true'] { color: var(--accent); border-color: var(--accent); }
+</style>

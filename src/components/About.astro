@@ -1,0 +1,27 @@
+---
+import SectionShell from './SectionShell.astro';
+import { getAbout, getSite } from '../lib/content';
+import { getStrings, type Locale } from '../lib/i18n';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = getStrings(locale);
+const { Content } = await getAbout(locale);
+const site = await getSite(locale);
+---
+
+<SectionShell id="about" title={t.nav.about}>
+  <div class="about" data-reveal>
+    <div class="about__text"><Content /></div>
+    <dl class="about__facts">
+      <div><dt class="t-meta">{site.name}</dt><dd>{site.title}</dd></div>
+      <div><dt class="t-meta">{t.contact.location}</dt><dd>{site.location}</dd></div>
+    </dl>
+  </div>
+</SectionShell>
+
+<style>
+  .about { display: grid; gap: 3rem; }
+  .about__text { display: grid; gap: 1.25rem; font-size: var(--text-lg); line-height: 1.5; max-width: 40rem; }
+  .about__facts { margin: 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); border-top: 1px solid var(--rule); padding-top: 1.5rem; }
+  .about__facts dd { margin: 0.25rem 0 0; }
+</style>

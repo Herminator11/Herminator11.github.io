@@ -1,0 +1,15 @@
+name: Hermann Adolf
+title: { en: "Media Engineering student", de: "Student Media Engineering", ko: "미디어 엔지니어링 전공 학생" }
+email: hermann11.ad@gmail.com
+phone: "+49 159 01489649"
+location: { en: "Nuremberg, Germany", de: "Nürnberg, Deutschland", ko: "독일 뉘른베르크" }
+socials: []   # add { label: GitHub, url: "https://github.com/..." } etc.
+resume: { en: "/resume/resume-en.pdf", de: "/resume/resume-de.pdf", ko: "/resume/resume-en.pdf" }
+seo:
+  title: { en: "Hermann Adolf: Media Engineering student", de: "Hermann Adolf: Student Media Engineering", ko: "Hermann Adolf: 미디어 엔지니어링 전공 학생" }
+  description:
+    en: "Portfolio of Hermann Adolf, Media Engineering student at TH Nürnberg: selected projects, résumé and contact."
+    de: "Portfolio von Hermann Adolf, Student Media Engineering an der TH Nürnberg: ausgewählte Projekte, Lebenslauf und Kontakt."
+    ko: "TH 뉘른베르크 미디어 엔지니어링 전공 학생 Hermann Adolf의 포트폴리오: 주요 프로젝트, 이력서, 연락처."
+ogImage: /og/og-default.png
+placeholder: false

@@ -1,0 +1,16 @@
+{
+  "nav": { "about": "Über mich", "resume": "Lebenslauf", "projects": "Projekte", "contact": "Kontakt", "label": "Hauptnavigation" },
+  "skip": "Zum Inhalt springen",
+  "theme": { "label": "Darstellung", "system": "System", "light": "Hell", "dark": "Dunkel" },
+  "lang": { "label": "Sprache", "en": "English", "de": "Deutsch", "ko": "한국어", "switchTo": "English" },
+  "resume": { "heading": "Lebenslauf", "experience": "Erfahrung", "education": "Ausbildung", "activities": "Außeruniversitär", "skills": "Fähigkeiten", "download": "Lebenslauf herunterladen (PDF)", "present": "heute" },
+  "projects": {
+    "heading": "Projekte", "all": "Alle", "filter": "Projekte filtern", "count_one": "{n} Projekt", "count_other": "{n} Projekte",
+    "aiTag": "Vibe-coded", "aiNote": "Vibe-coded: mit KI-Unterstützung entstanden.", "open": "Projekt öffnen", "role": "Rolle", "stack": "Technik", "links": "Links", "github": "Quellcode auf GitHub", "demo": "Live-Demo", "pdf": "PDF lesen",
+    "close": "Schließen", "previous": "Vorheriges Bild", "next": "Nächstes Bild", "image": "Bild", "of": "von", "share": "Link kopieren", "copied": "Link kopiert", "newTab": "öffnet in neuem Tab",
+    "prevProject": "Vorheriges Projekt", "nextProject": "Nächstes Projekt", "gallery": "Galerie", "thumbnails": "Vorschaubilder", "playVideo": "Video abspielen"
+  },
+  "contact": { "heading": "Kontakt", "lead": "Am besten erreichst du mich per E-Mail.", "phone": "Telefon", "location": "Ort", "email": "E-Mail", "elsewhere": "Auch hier" },
+  "footer": { "rights": "© {year} {name}", "top": "Nach oben" },
+  "placeholder": "Platzhalter"
+}

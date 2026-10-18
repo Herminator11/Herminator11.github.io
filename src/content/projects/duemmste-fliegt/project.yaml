@@ -1,0 +1,35 @@
+slug: duemmste-fliegt
+date: "2026-10"
+categories: [web, games]
+ai: true
+cover:
+  src: ./media/01-game-screen.png
+  alt:
+    en: "Game screen with four players, their hearts and one result dot per question"
+    de: "Game Screen mit vier Spielern, ihren Herzen und einem Ergebnispunkt je Frage"
+    ko: "플레이어 네 명, 각자의 하트, 문제마다 하나씩 표시되는 결과 점이 있는 게임 화면"
+  focal: [0.5, 0.3]
+stack: [JavaScript, Node.js, HTML, CSS]
+links: {}
+gallery:
+  - type: image
+    src: ./media/01-game-screen.png
+    alt:
+      en: "Game screen with four players, their hearts and one result dot per question"
+      de: "Game Screen mit vier Spielern, ihren Herzen und einem Ergebnispunkt je Frage"
+      ko: "플레이어 네 명, 각자의 하트, 문제마다 하나씩 표시되는 결과 점이 있는 게임 화면"
+    caption:
+      en: "The game screen for the TV, shown here with demo players."
+      de: "Der Game Screen fürs Fernsehen, hier mit Demo-Spielern."
+      ko: "TV용 게임 화면입니다. 여기서는 데모 플레이어가 표시되어 있습니다."
+  - type: image
+    src: ./media/02-master-start.png
+    alt:
+      en: "The host's start page with players, house rules and the online room"
+      de: "Startseite des Spielleiters mit Spielern, Spielregeln und Online-Raum"
+      ko: "플레이어, 게임 규칙, 온라인 방이 있는 진행자의 시작 페이지"
+    caption:
+      en: "The host's start page."
+      de: "Die Startseite des Spielleiters."
+      ko: "진행자의 시작 페이지입니다."
+placeholder: false

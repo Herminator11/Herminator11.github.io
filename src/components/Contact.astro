@@ -1,0 +1,33 @@
+---
+import SectionShell from './SectionShell.astro';
+import { getSite } from '../lib/content';
+import { getStrings, type Locale } from '../lib/i18n';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = getStrings(locale);
+const site = await getSite(locale);
+---
+
+<SectionShell id="contact" title={t.contact.heading}>
+  <div class="contact" data-reveal>
+    <p class="contact__lead">{t.contact.lead}</p>
+    <a class="contact__mail t-display" href={`mailto:${site.email}`}>{site.email}</a>
+    {(site.phone || site.socials.length > 0) && (
+      <ul class="contact__links" aria-label={t.contact.elsewhere}>
+        {site.phone && <li><a href={site.phoneHref}>{t.contact.phone}: {site.phone}</a></li>}
+        {site.socials.map((s) => (
+          <li><a href={s.url} rel="noopener" target="_blank">{s.label}<span class="sr-only"> ({t.projects.newTab})</span></a></li>
+        ))}
+      </ul>
+    )}
+  </div>
+</SectionShell>
+
+<style>
+  .contact { display: grid; gap: 1.5rem; }
+  .contact__lead { color: var(--ink-muted); }
+  .contact__mail { position: relative; justify-self: start; text-decoration: none; overflow-wrap: anywhere; padding-bottom: 0.08em; }
+  .contact__mail::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform var(--dur-3) var(--ease-out); }
+  .contact__mail:hover::after, .contact__mail:focus-visible::after { transform: scaleX(1); }
+  .contact__links { list-style: none; margin: 1.5rem 0 0; padding: 0; display: flex; gap: 1.75rem; flex-wrap: wrap; }
+</style>

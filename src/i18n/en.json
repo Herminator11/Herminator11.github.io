@@ -1,0 +1,16 @@
+{
+  "nav": { "about": "About", "resume": "Résumé", "projects": "Projects", "contact": "Contact", "label": "Main" },
+  "skip": "Skip to content",
+  "theme": { "label": "Theme", "system": "System", "light": "Light", "dark": "Dark" },
+  "lang": { "label": "Language", "en": "English", "de": "Deutsch", "ko": "한국어", "switchTo": "Deutsch" },
+  "resume": { "heading": "Résumé", "experience": "Experience", "education": "Education", "activities": "Extracurricular", "skills": "Skills", "download": "Download résumé (PDF)", "present": "Present" },
+  "projects": {
+    "heading": "Projects", "all": "All", "filter": "Filter projects", "count_one": "{n} project", "count_other": "{n} projects",
+    "aiTag": "Vibe-coded", "aiNote": "Vibe-coded: built with AI assistance.", "open": "Open project", "role": "Role", "stack": "Stack", "links": "Links", "github": "Source on GitHub", "demo": "Live demo", "pdf": "Read the PDF",
+    "close": "Close", "previous": "Previous image", "next": "Next image", "image": "Image", "of": "of", "share": "Copy link", "copied": "Link copied", "newTab": "opens in a new tab",
+    "prevProject": "Previous project", "nextProject": "Next project", "gallery": "Gallery", "thumbnails": "Thumbnails", "playVideo": "Play video"
+  },
+  "contact": { "heading": "Contact", "lead": "The best way to reach me is email.", "phone": "Phone", "location": "Location", "email": "Email", "elsewhere": "Elsewhere" },
+  "footer": { "rights": "© {year} {name}", "top": "Back to top" },
+  "placeholder": "Placeholder"
+}

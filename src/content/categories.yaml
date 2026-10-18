@@ -1,0 +1,9 @@
+- id: android
+  label: { en: "Android", de: "Android", ko: "Android" }
+  order: 1
+- id: web
+  label: { en: "Web", de: "Web", ko: "웹" }
+  order: 2
+- id: games
+  label: { en: "Games", de: "Spiele", ko: "게임" }
+  order: 3

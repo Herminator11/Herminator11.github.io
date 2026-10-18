@@ -1,0 +1,7 @@
+slug: mywatchlist
+date: "2026-07"
+categories: [android]
+ai: true
+stack: [Kotlin, Jetpack Compose, Room, Retrofit, TMDB]
+links: {}
+placeholder: false

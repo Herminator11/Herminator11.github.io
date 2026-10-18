@@ -1,0 +1,22 @@
+- id: ohmux
+  org: OhmUX Team, Technische Hochschule Nürnberg
+  role: { en: "Student assistant", de: "Studentische Hilfskraft", ko: "학생 조교" }
+  start: "2026"
+  end: present
+  summary:
+    en: "UX/UI design and user research for university projects."
+    de: "UX/UI-Design und Nutzerforschung für Hochschulprojekte."
+    ko: "대학 프로젝트를 위한 UX/UI 디자인과 사용자 리서치."
+- id: adesso
+  org: adesso SE
+  role: { en: "Intern, rotational program", de: "Praktikant, Rotationsprogramm", ko: "인턴, 순환 근무 프로그램" }
+  start: "2025-03"
+  end: "2025-07"
+  summary:
+    en: "Contributed to the development of a web application."
+    de: "Mitarbeit an der Entwicklung einer Webanwendung."
+    ko: "웹 애플리케이션 개발에 참여."
+  bullets:
+    en: ["Rotated through different Scrum roles every two weeks."]
+    de: ["Alle zwei Wochen Wechsel durch verschiedene Scrum-Rollen."]
+    ko: ["2주마다 여러 스크럼 역할을 번갈아 맡음."]

@@ -1,0 +1,88 @@
+@import 'tailwindcss/theme.css' layer(theme);
+/* Tailwind supplies the @theme token system only. The design is bespoke CSS on these tokens;
+   utilities are off (source(none)) so stray words in source never generate CSS. To use a utility,
+   add an explicit @source for the file that needs it. */
+@import 'tailwindcss/utilities.css' layer(utilities) source(none);
+@import './fonts.css';
+
+/* ===== Design tokens: the single source of truth =====
+   Colors are semantic CSS variables that switch per theme.
+   Everything else (type, space, radius, motion) is theme-independent. */
+
+@theme static {
+  /* Type families */
+  --font-display: 'Instrument Serif', 'Instrument Serif Fallback', Georgia, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', serif;
+  --font-sans: 'Hanken Grotesk', 'Hanken Grotesk Fallback', system-ui, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', ui-monospace, monospace;
+
+  /* Fluid type scale (ratio ~1.25 for text, expressive for display) */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: clamp(1.0625rem, 1.02rem + 0.2vw, 1.1875rem);
+  --text-lg: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --text-xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --text-2xl: clamp(2.5rem, 1.8rem + 3.2vw, 4.5rem);
+  --text-3xl: clamp(3.25rem, 2rem + 6vw, 7rem);
+  --text-hero: clamp(3.5rem, 1.5rem + 9.5vw, 9.5rem);
+
+  /* Spacing: 8pt scale (4 for micro) */
+  --spacing: 0.25rem;
+  --space-section: clamp(6rem, 4rem + 8vw, 12rem);
+  --gutter: clamp(1.25rem, 0.5rem + 3vw, 3rem);
+  --max-width: 82.5rem;
+
+  /* Radii */
+  --radius-sm: 2px;
+  --radius-md: 8px;
+
+  /* Motion */
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+  --dur-3: 420ms;
+  --dur-4: 700ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Semantic colors exposed to Tailwind utilities */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--ink-muted);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+}
+
+:root {
+  color-scheme: light;
+  --bg: #f4f4f1;
+  --surface: #fbfbf9;
+  --ink: #14130f;
+  --ink-muted: #5c5a53;
+  --rule: rgb(20 19 15 / 0.14);
+  --accent: #c9301a; /* vermilion; ratio vs --bg checked in scripts/contrast.mjs */
+  --backdrop: rgb(10 10 8 / 0.42);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #111110;
+    --surface: #1a1a18;
+    --ink: #edece7;
+    --ink-muted: #a2a09a;
+    --rule: rgb(237 236 231 / 0.16);
+    --accent: #ff6a4a;
+    --backdrop: rgb(0 0 0 / 0.55);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #111110;
+  --surface: #1a1a18;
+  --ink: #edece7;
+  --ink-muted: #a2a09a;
+  --rule: rgb(237 236 231 / 0.16);
+  --accent: #ff6a4a;
+  --backdrop: rgb(0 0 0 / 0.55);
+}

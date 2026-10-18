@@ -1,0 +1,131 @@
+---
+import { getImage } from 'astro:assets';
+import Picture from './Picture.astro';
+import '../styles/dialog.css';
+import type { Project } from '../lib/content';
+import type { Strings } from '../lib/i18n';
+interface Props { projects: Project[]; labels: Record<string, string>; t: Strings }
+const { projects, labels, t } = Astro.props;
+const thumbs = new Map<string, { src: string; width: number; height: number }>();
+for (const p of projects) {
+  for (const [i, g] of p.gallery.entries()) {
+    const src = g.type === 'image' ? g.src : g.type === 'video' ? g.poster : g.poster;
+    if (src) {
+      const r = await getImage({ src, width: 192, height: 144, fit: 'cover', format: 'webp' });
+      thumbs.set(`${p.slug}:${i}`, { src: r.src, width: 192, height: 144 });
+    }
+  }
+}
+const posters = new Map<string, string>();
+for (const p of projects)
+  for (const [i, g] of p.gallery.entries())
+    if (g.type === 'video') posters.set(`${p.slug}:${i}`, (await getImage({ src: g.poster, width: 1280, format: 'webp' })).src);
+---
+
+<dialog class="dialog" data-dialog aria-labelledby="dialog-title" aria-describedby="dialog-summary">
+  <div class="dialog__panel" data-panel>
+    <button class="dialog__close" type="button" data-close aria-label={t.projects.close}>
+      <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+    </button>
+    <div class="dialog__mount" data-mount></div>
+  </div>
+</dialog>
+
+{projects.map((p, pi) => {
+  const prev = projects[(pi - 1 + projects.length) % projects.length];
+  const next = projects[(pi + 1) % projects.length];
+  const catLabels = p.categories.map((c) => labels[c]).filter(Boolean);
+  const multi = p.gallery.length > 1;
+  return (
+    <template id={`project-${p.slug}`}>
+      <article class:list={['detail', p.gallery.length === 0 && 'detail--text']}>
+        {p.gallery.length > 0 && (
+        <div class="detail__gallery" data-gallery role="group" aria-roledescription="carousel" aria-label={`${t.projects.gallery}: ${p.title}`}>
+          <div class="gallery__viewport">
+            <div class="gallery__track" data-track tabindex="0" aria-label={t.projects.gallery}>
+              {p.gallery.map((g, i) => (
+                <figure class="slide" data-slide role="group" aria-roledescription="slide" aria-label={`${t.projects.image} ${i + 1} ${t.projects.of} ${p.gallery.length}`}>
+                  {g.type === 'image' && (
+                    <Picture img={g.src} alt={g.alt} fit="contain" fill loading={i === 0 ? 'eager' : 'lazy'} sizes="(min-width: 64rem) 62vw, 100vw" />
+                  )}
+                  {g.type === 'video' && (
+                    <video class="slide__video" controls playsinline preload="none" loop={g.loop} poster={posters.get(`${p.slug}:${i}`)} aria-label={g.alt}>
+                      <source src={g.src} type="video/mp4" />
+                    </video>
+                  )}
+                  {g.type === 'embed' && (
+                    <iframe class="slide__embed" src={g.url} title={g.title} loading="lazy" allow="fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                  )}
+                  {'caption' in g && g.caption && <figcaption class="slide__cap">{g.caption}</figcaption>}
+                </figure>
+              ))}
+            </div>
+            {multi && (
+              <>
+                <button class="gallery__arrow gallery__arrow--prev" type="button" data-prev aria-label={t.projects.previous}>
+                  <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M12.5 4L6.5 10l6 6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="gallery__arrow gallery__arrow--next" type="button" data-next aria-label={t.projects.next}>
+                  <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M7.5 4l6 6-6 6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <p class="gallery__count t-meta" aria-live="polite" data-count data-of={t.projects.of}>1 {t.projects.of} {p.gallery.length}</p>
+              </>
+            )}
+          </div>
+          {multi && (
+            <ul class="thumbs" aria-label={t.projects.thumbnails} data-thumbs>
+              {p.gallery.map((g, i) => {
+                const th = thumbs.get(`${p.slug}:${i}`);
+                return (
+                  <li>
+                    <button class="thumb" type="button" data-thumb={i} aria-label={`${t.projects.image} ${i + 1}`} aria-current={i === 0 ? 'true' : undefined}>
+                      {th ? <img src={th.src} width={th.width} height={th.height} alt="" loading="lazy" decoding="async" /> : <span class="thumb__ph" />}
+                      {g.type === 'video' && <span class="thumb__play" aria-hidden="true"></span>}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+        )}
+
+        <div class="detail__text">
+          <p class="t-meta detail__facts"><time datetime={p.date}>{p.year}</time>{p.context && <span>{p.context}</span>}<span>{catLabels.join(', ')}</span></p>
+          <h2 id="dialog-title" class="detail__title t-display" tabindex="-1">{p.title}</h2>
+          <p id="dialog-summary" class="detail__summary">{p.summary}</p>
+
+          {(p.ai || p.note) && (
+            <ul class="detail__notes">
+              {p.note && <li>{p.note}</li>}
+              {p.ai && <li>{t.projects.aiNote}</li>}
+            </ul>
+          )}
+
+          <dl class="detail__spec">
+            <div><dt>{t.projects.role}</dt><dd>{p.role}</dd></div>
+            {p.stack.length > 0 && <div><dt>{t.projects.stack}</dt><dd>{p.stack.join(', ')}</dd></div>}
+          </dl>
+
+          <div class="prose"><p.Content /></div>
+
+          {(p.links.github || p.links.demo || p.links.pdf || p.links.other.length > 0) && (
+            <ul class="detail__links" aria-label={t.projects.links}>
+              {p.links.github && <li><a class="pill" href={p.links.github} target="_blank" rel="noopener">{t.projects.github}<span class="sr-only"> ({t.projects.newTab})</span></a></li>}
+              {p.links.demo && <li><a class="pill" href={p.links.demo} target="_blank" rel="noopener">{t.projects.demo}<span class="sr-only"> ({t.projects.newTab})</span></a></li>}
+              {p.links.pdf && <li><a class="pill" href={p.links.pdf} target="_blank" rel="noopener">{t.projects.pdf}<span class="sr-only"> ({t.projects.newTab})</span></a></li>}
+              {p.links.other.map((o) => <li><a class="pill" href={o.url} target="_blank" rel="noopener">{o.label}<span class="sr-only"> ({t.projects.newTab})</span></a></li>)}
+            </ul>
+          )}
+
+          <nav class="detail__nav" aria-label={t.projects.heading}>
+            <a href={`#${prev.slug}`} data-switch={prev.slug} rel="prev"><span class="t-meta">{t.projects.prevProject}</span><span>{prev.title}</span></a>
+            <a href={`#${next.slug}`} data-switch={next.slug} rel="next"><span class="t-meta">{t.projects.nextProject}</span><span>{next.title}</span></a>
+            <button class="detail__share" type="button" data-share data-copied={t.projects.copied}>{t.projects.share}</button>
+          </nav>
+          <p class="sr-only" role="status" data-share-status></p>
+        </div>
+      </article>
+    </template>
+  );
+})}

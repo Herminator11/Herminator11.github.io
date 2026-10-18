@@ -1,0 +1,22 @@
+---
+import { getSite } from '../lib/content';
+import { getStrings, fmt, type Locale } from '../lib/i18n';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = getStrings(locale);
+const site = await getSite(locale);
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    {t.translationNote && <p class="t-meta footer__note">{t.translationNote}</p>}
+    <p class="t-meta">{fmt(t.footer.rights, { year: new Date().getFullYear(), name: site.name })}</p>
+    <a class="t-meta" href="#top">{t.footer.top}</a>
+  </div>
+</footer>
+
+<style>
+  .footer { border-top: 1px solid var(--rule); padding-block: 2rem 3rem; }
+  .footer__note { flex-basis: 100%; text-transform: none; letter-spacing: 0; line-height: 1.6; max-width: 62ch; }
+  .footer__inner { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+</style>

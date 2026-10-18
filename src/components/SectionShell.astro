@@ -1,0 +1,29 @@
+---
+interface Props { id: string; title: string; wide?: boolean }
+const { id, title, wide = false } = Astro.props;
+---
+
+<section id={id} class="section" aria-labelledby={`${id}-title`} data-section>
+  <div class:list={["container shell", wide && "shell--wide"]}>
+    <div class="shell__rail"><h2 id={`${id}-title`}>{title}</h2></div>
+    <div class="shell__body"><slot /></div>
+  </div>
+</section>
+
+<style>
+  .section {
+    border-top: 1px solid var(--rule);
+    padding-block: var(--space-section);
+  }
+  .shell { display: grid; gap: 2.5rem; }
+  .shell__rail h2 { font-size: var(--text-xl); color: var(--ink-muted); }
+  @media (min-width: 56rem) {
+    .shell { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 2rem; }
+    .shell__rail { grid-column: 1 / span 3; }
+    .shell__rail h2 { position: sticky; top: 6rem; }
+    .shell__body { grid-column: 4 / -1; }
+    .shell--wide .shell__rail, .shell--wide .shell__body { grid-column: 1 / -1; }
+    .shell--wide .shell__rail h2 { position: static; }
+    .shell--wide { row-gap: 2.5rem; }
+  }
+</style>

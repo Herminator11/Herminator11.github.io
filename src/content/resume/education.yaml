@@ -1,0 +1,10 @@
+- id: th-nbg
+  org: Technische Hochschule Nürnberg Georg Simon Ohm
+  degree: { en: "B.Eng. Media Engineering", de: "B.Eng. Media Engineering", ko: "공학사(B.Eng.) 미디어 엔지니어링" }
+  start: "2023-10"
+  end: present
+- id: ajou
+  org: Ajou University
+  degree: { en: "Winter School", de: "Winter School", ko: "동계 학기(Winter School)" }
+  start: "2025-12"
+  end: "2026-01"

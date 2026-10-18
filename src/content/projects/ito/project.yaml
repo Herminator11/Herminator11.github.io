@@ -1,0 +1,11 @@
+slug: ito
+date: "2026-08"
+categories: [android, games]
+ai: true
+note:
+  en: "Based on the card game ito. This is an unofficial digital version of that game."
+  de: "Basiert auf dem Kartenspiel ito. Dies ist eine inoffizielle digitale Umsetzung dieses Spiels."
+  ko: "카드 게임 ito를 바탕으로 한 비공식 디지털 버전입니다."
+stack: [Kotlin, Jetpack Compose, Ktor, WebSockets, HTML, JavaScript]
+links: {}
+placeholder: false

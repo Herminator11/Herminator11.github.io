@@ -1,0 +1,35 @@
+- id: design
+  order: 1
+  group: { en: "Design", de: "Gestaltung", ko: "디자인" }
+  items: [Adobe Illustrator, InDesign, Affinity, Canva, Figma]
+- id: programming
+  order: 2
+  group: { en: "Programming", de: "Programmierung", ko: "프로그래밍" }
+  items: [HTML/CSS, Java, Python, SQL, JavaScript, Kotlin]
+- id: office
+  order: 3
+  group: { en: "Office", de: "Office", ko: "오피스" }
+  items: [MS Word, Excel, PowerPoint, Teams, Miro]
+- id: os
+  order: 4
+  group: { en: "Operating systems", de: "Betriebssysteme", ko: "운영체제" }
+  items: [macOS, Windows, Linux]
+- id: workshops
+  order: 5
+  group: { en: "Workshops", de: "Workshops", ko: "워크숍" }
+  items: [Design Thinking, Change Management, Gaming the System]
+- id: languages
+  order: 6
+  group: { en: "Languages", de: "Sprachen", ko: "언어" }
+  items:
+    - { en: "German (native)", de: "Deutsch (Muttersprache)", ko: "독일어 (모국어)" }
+    - { en: "English (B2+/C1)", de: "Englisch (B2+/C1)", ko: "영어 (B2+/C1)" }
+    - { en: "Russian (A1-A2)", de: "Russisch (A1-A2)", ko: "러시아어 (A1-A2)" }
+    - { en: "Korean (A1-A2)", de: "Koreanisch (A1-A2)", ko: "한국어 (A1-A2)" }
+- id: interests
+  order: 7
+  group: { en: "Interests", de: "Interessen", ko: "관심사" }
+  items:
+    - { en: "Tennis (TSV Stein)", de: "Tennis (TSV Stein)", ko: "테니스 (TSV Stein)" }
+    - { en: "Figure skating (former, ECN)", de: "Eiskunstlauf (früher, ECN)", ko: "피겨 스케이팅 (과거, ECN)" }
+    - { en: "Saxophone", de: "Saxophon", ko: "색소폰" }
