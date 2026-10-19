@@ -1,11 +1,11 @@
 slug: mycharactermanager
-date: "2026-07"
+date: "2026-10"
 categories: [web]
 ai: true
 note:
-  en: "Built for my own use, self-hosted. Spell, class and race data come from the D&D 5e System Reference Document 5.1 (CC-BY-4.0)."
-  de: "Für den eigenen Gebrauch gebaut und selbst gehostet. Zauber-, Klassen- und Spezies-Daten stammen aus dem D&D 5e System Reference Document 5.1 (CC-BY-4.0)."
-  ko: "개인 용도로 만들어 직접 호스팅하고 있습니다. 주문, 클래스, 종족 데이터는 D&D 5e System Reference Document 5.1(CC-BY-4.0)에서 가져왔습니다."
+  en: "Built for my own use, self-hosted. Spell, class and race data come from the D&D 5e System Reference Document 5.1 (CC-BY-4.0). Icons from game-icons.net (CC-BY-3.0)."
+  de: "Für den eigenen Gebrauch gebaut und selbst gehostet. Zauber-, Klassen- und Spezies-Daten stammen aus dem D&D 5e System Reference Document 5.1 (CC-BY-4.0). Icons von game-icons.net (CC-BY-3.0)."
+  ko: "개인 용도로 만들어 직접 호스팅하고 있습니다. 주문, 클래스, 종족 데이터는 D&D 5e System Reference Document 5.1(CC-BY-4.0)에서 가져왔습니다. 아이콘은 game-icons.net(CC-BY-3.0)에서 가져왔습니다."
 stack: [TypeScript, Next.js, SQLite, Drizzle, Tailwind CSS]
 links: {}
 placeholder: false
