@@ -14,7 +14,7 @@ cover:
     ko: "“Dieser Kosename ist kitschig” 주제의 힌트 카드 세 장: Schatzi, Zuckerschnäuzchen, Kumpel"
   focal: [0.5, 0.5]
 stack: [Kotlin, Jetpack Compose, Ktor, WebSockets, HTML, JavaScript]
-links: {}
+links: { github: "https://github.com/Herminator11/ito" }
 gallery:
   - type: image
     src: ./media/01-lobby.png

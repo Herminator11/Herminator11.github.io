@@ -15,7 +15,7 @@ cover:
     ko: "검은 화면에 큰 흰 글씨로 “Yes, dear. Where are you going?” 자막이 표시된 My Neighbor Totoro 극장 모드"
   focal: [0.5, 0.4]
 stack: [Kotlin, Jetpack Compose, Room, Media3, TMDB, SubDL]
-links: {}
+links: { github: "https://github.com/Herminator11/CinemaSub" }
 gallery:
   - type: image
     src: ./media/02-cinema-view.png

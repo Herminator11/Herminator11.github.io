@@ -10,7 +10,7 @@ cover:
     ko: "플레이어 네 명, 각자의 하트, 문제마다 하나씩 표시되는 결과 점이 있는 게임 화면"
   focal: [0.5, 0.3]
 stack: [JavaScript, Node.js, HTML, CSS]
-links: {}
+links: { github: "https://github.com/Herminator11/duemmste-fliegt" }
 gallery:
   - type: image
     src: ./media/01-game-screen.png

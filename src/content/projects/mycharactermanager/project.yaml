@@ -14,7 +14,7 @@ cover:
     ko: "초상화, 방어도, 우선권, 이동 속도, 히트 포인트가 보이는 파이터 Verso의 개요"
   focal: [0.5, 0.25]
 stack: [TypeScript, Next.js, SQLite, Drizzle, Tailwind CSS]
-links: {}
+links: { github: "https://github.com/Herminator11/MyCharacterManager" }
 gallery:
   - type: image
     src: ./media/01-library.png
