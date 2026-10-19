@@ -41,7 +41,15 @@ export function initHeader() {
       if (isOpen()) list.querySelector<HTMLElement>('[aria-current]')?.focus();
     });
     document.addEventListener('click', (e) => !menu.contains(e.target as Node) && set(false));
-    menu.addEventListener('focusout', (e) => !menu.contains(e.relatedTarget as Node | null) && set(false));
+    // Safari doesn't focus links on click, so focusout has relatedTarget null while a press inside the menu is
+    // still in progress. Closing then (pointer-events: none) would swallow the click on the language link.
+    let pressing = false;
+    menu.addEventListener('pointerdown', () => {
+      pressing = true;
+      addEventListener('pointerup', () => setTimeout(() => (pressing = false)), { once: true });
+      addEventListener('pointercancel', () => (pressing = false), { once: true });
+    });
+    menu.addEventListener('focusout', (e) => !pressing && !menu.contains(e.relatedTarget as Node | null) && set(false));
     menu.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && isOpen()) {
         set(false);

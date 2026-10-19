@@ -1,4 +1,5 @@
 import { initGallery, galleryIndex } from './gallery';
+import { dur, ease } from './motion';
 
 const VT_NAME = 'project-cover';
 type Doc = Document & { startViewTransition?: (cb: () => void | Promise<void>) => { finished: Promise<void> } };
@@ -30,9 +31,11 @@ export function initModal() {
     return r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth ? pic : null;
   };
   const slugFromHash = () => {
-    const s = decodeURIComponent(location.hash.slice(1));
+    let s = '';
+    try { s = decodeURIComponent(location.hash.slice(1)); } catch { /* malformed escape: not a slug */ }
     return slugs.has(s) ? s : null;
   };
+  const originFor = (slug: string) => cardFor(slug)?.querySelector<HTMLElement>('[data-project]') ?? null;
   const focusHeading = () => mount.querySelector<HTMLElement>('#dialog-title')?.focus({ preventScroll: true });
 
   const fill = (slug: string) => {
@@ -40,6 +43,7 @@ export function initModal() {
     destroyGallery();
     mount.replaceChildren(tpl.content.cloneNode(true));
     current = slug;
+    origin = originFor(slug);
     panel.scrollTop = 0;
     mount.querySelector('.detail__text')?.scrollTo(0, 0);
     destroyGallery = initGallery(mount, dialog);
@@ -101,6 +105,7 @@ export function initModal() {
       current = null;
       closing = false;
       restoreFocus();
+      setTimeout(() => sync(false)); // pick up a hash change that arrived mid-close
     };
     const src = slug ? coverOf(slug) : null;
     const slidePic = mount.querySelector('.slide .pic');
@@ -113,7 +118,7 @@ export function initModal() {
       finish();
     } else {
       dialog.dataset.state = '';
-      setTimeout(finish, 280);
+      setTimeout(finish, dur('dur-2'));
     }
   };
 
@@ -121,7 +126,11 @@ export function initModal() {
     if (closing || !dialog.open) return;
     if (openedByNav) {
       history.back(); // hashchange -> sync() -> closeUI()
-      setTimeout(() => dialog.open && !closing && slugFromHash() === null && closeUI(), 400);
+      setTimeout(() => {
+        if (!dialog.open || closing || slugFromHash() === null) return; // closed, or hashchange is handling it
+        history.replaceState(null, '', location.pathname + location.search); // back didn't navigate
+        closeUI();
+      }, 400);
     } else {
       history.replaceState(null, '', location.pathname + location.search);
       closeUI();
@@ -136,10 +145,6 @@ export function initModal() {
     } else if (dialog.open) closeUI();
   };
 
-  // Remember which card opened the dialog (for the shared-element transition and focus return).
-  document.querySelector('[data-grid]')?.addEventListener('click', (e) => {
-    origin = (e.target as HTMLElement).closest<HTMLElement>('[data-project]');
-  });
   // Explicit focus trap: browsers otherwise let Tab leave a modal dialog for their own chrome.
   dialog.addEventListener('keydown', (e) => {
     if (e.key !== 'Tab') return;
@@ -167,12 +172,13 @@ export function initModal() {
       history.replaceState(null, '', `#${slug}`);
       fill(slug);
       focusHeading();
-      if (!reduce()) mount.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
+      if (!reduce()) mount.animate([{ opacity: 0 }, { opacity: 1 }], { duration: dur('dur-2'), easing: ease() });
       return;
     }
     const share = t.closest<HTMLButtonElement>('[data-share]');
     if (share) void shareLink(share);
   });
+  let shareTimer = 0;
   const shareLink = async (btn: HTMLButtonElement) => {
     const status = mount.querySelector<HTMLElement>('[data-share-status]');
     const title = mount.querySelector('#dialog-title')?.textContent ?? document.title;
@@ -180,10 +186,14 @@ export function initModal() {
       if (navigator.share && matchMedia('(pointer: coarse)').matches) await navigator.share({ title, url: location.href });
       else {
         await navigator.clipboard.writeText(location.href);
-        const label = btn.textContent;
+        const label = (btn.dataset.shareLabel ??= btn.textContent ?? '');
         btn.textContent = btn.dataset.copied!;
         if (status) status.textContent = btn.dataset.copied!;
-        setTimeout(() => (btn.textContent = label), 2000);
+        clearTimeout(shareTimer);
+        shareTimer = window.setTimeout(() => {
+          btn.textContent = label;
+          if (status) status.textContent = '';
+        }, 2000);
       }
     } catch { /* user cancelled or clipboard unavailable */ }
   };

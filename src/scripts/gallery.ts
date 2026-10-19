@@ -1,3 +1,5 @@
+import { dur } from './motion';
+
 /** Scroll-snap gallery: arrows, thumbnails, arrow keys, counter, pauses off-screen video. Returns a destroy fn. */
 export function initGallery(scope: HTMLElement, dialog: HTMLElement) {
   const root = scope.querySelector<HTMLElement>('[data-gallery]');
@@ -12,6 +14,7 @@ export function initGallery(scope: HTMLElement, dialog: HTMLElement) {
   const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   let index = 0;
   let raf = 0;
+  let settleTimer = 0;
 
   const clamp = (i: number) => Math.max(0, Math.min(slides.length - 1, i));
   const goTo = (i: number, smooth = true) =>
@@ -22,6 +25,10 @@ export function initGallery(scope: HTMLElement, dialog: HTMLElement) {
     prev?.setAttribute('aria-disabled', String(index === 0));
     next?.setAttribute('aria-disabled', String(index === slides.length - 1));
     thumbs.forEach((t, i) => (i === index ? t.setAttribute('aria-current', 'true') : t.removeAttribute('aria-current')));
+  };
+
+  // Runs once the index stops changing, so a multi-slide smooth scroll moves the strip a single time.
+  const settle = () => {
     const t = thumbs[index];
     if (strip && t) strip.scrollTo({ left: t.offsetLeft - (strip.clientWidth - t.offsetWidth) / 2, behavior: reduce() ? 'auto' : 'smooth' });
     slides.forEach((s, i) => i !== index && s.querySelectorAll('video').forEach((v) => v.pause()));
@@ -31,7 +38,12 @@ export function initGallery(scope: HTMLElement, dialog: HTMLElement) {
     raf ||= requestAnimationFrame(() => {
       raf = 0;
       const i = clamp(Math.round(track.scrollLeft / Math.max(1, track.clientWidth)));
-      if (i !== index) { index = i; render(); }
+      if (i !== index) {
+        index = i;
+        render();
+        clearTimeout(settleTimer);
+        settleTimer = window.setTimeout(settle, dur('dur-1'));
+      }
     });
   };
   const onKey = (e: KeyboardEvent) => {
@@ -51,8 +63,17 @@ export function initGallery(scope: HTMLElement, dialog: HTMLElement) {
   const ro = new ResizeObserver(onResize);
   ro.observe(track);
   render();
+  settle();
+
+  // Slides sit side by side in a scroller, so native lazy loading waits until they are scrolled into view and
+  // shows blank frames on slower connections. Load the rest right away, the first slide's image going first.
+  const preload = () => slides.forEach((s) => s.querySelectorAll<HTMLImageElement>('img[loading="lazy"]').forEach((img) => (img.loading = 'eager')));
+  const first = slides[0]?.querySelector<HTMLImageElement>('img');
+  if (!first || first.complete) preload();
+  else (['load', 'error'] as const).forEach((ev) => first.addEventListener(ev, preload, { once: true }));
 
   return () => {
+    clearTimeout(settleTimer);
     dialog.removeEventListener('keydown', onKey);
     ro.disconnect();
     cancelAnimationFrame(raf);

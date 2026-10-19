@@ -2,14 +2,17 @@
 export function initRail() {
   const rail = document.querySelector<HTMLElement>('[data-rail]');
   const dot = document.querySelector<HTMLElement>('[data-rail-dot]');
-  if (!rail || !dot || getComputedStyle(rail).display === 'none') return;
+  if (!rail || !dot) return;
   const sections = [...document.querySelectorAll<HTMLElement>('[data-section]')];
   let ticks: HTMLElement[] = [];
   let railH = 0;
   let max = 1;
   let raf = 0;
+  let laying = 0;
 
   const layout = () => {
+    laying = 0;
+    if (getComputedStyle(rail).display === 'none') return; // hidden on narrow screens; re-checked on resize
     railH = rail.clientHeight - 7;
     max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
     ticks.forEach((t) => t.remove());
@@ -30,7 +33,8 @@ export function initRail() {
     dot.style.transform = `translateY(${p * railH}px)`;
   };
   addEventListener('scroll', () => (raf ||= requestAnimationFrame(update)), { passive: true });
-  addEventListener('resize', layout);
-  new ResizeObserver(layout).observe(document.body);
+  const schedule = () => (laying ||= requestAnimationFrame(layout)); // resize + body RO fire together: lay out once
+  addEventListener('resize', schedule);
+  new ResizeObserver(schedule).observe(document.body);
   layout();
 }

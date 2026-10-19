@@ -1,3 +1,5 @@
+import { dur, ease } from './motion';
+
 /** Category filter with FLIP reflow. Only transform and opacity are animated. */
 export function initFilter() {
   const grid = document.querySelector<HTMLElement>('[data-grid]');
@@ -37,7 +39,12 @@ export function initFilter() {
     const first = new Map(keep.map((c) => [c, c.getBoundingClientRect()]));
     const leaving = hide.filter((c) => !c.hidden);
     // 1) fade leaving cards out
-    await Promise.all(leaving.map((c) => c.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 140, easing: 'ease-out', fill: 'forwards' }).finished.catch(() => {})));
+    // (tracked in `running` so a newer filter click cancels them instead of stranding cards at opacity 0)
+    await Promise.all(leaving.map((c) => {
+      const a = c.animate([{ opacity: 1 }, { opacity: 0 }], { duration: dur('dur-1'), easing: ease(), fill: 'forwards' });
+      running.push(a);
+      return a.finished.catch(() => {});
+    }));
     if (current !== f) return;
     leaving.forEach((c) => { c.hidden = true; c.getAnimations().forEach((a) => a.cancel()); });
     entering.forEach((c) => (c.hidden = false));
@@ -46,9 +53,9 @@ export function initFilter() {
       const a = first.get(c)!;
       const b = c.getBoundingClientRect();
       const dx = a.left - b.left, dy = a.top - b.top;
-      if (dx || dy) running.push(c.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.8,.2,1)' }));
+      if (dx || dy) running.push(c.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }], { duration: dur('dur-3'), easing: ease() }));
     }
-    entering.forEach((c) => running.push(c.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 420, delay: 80, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' })));
+    entering.forEach((c) => running.push(c.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: dur('dur-3'), delay: dur('dur-1'), easing: ease(), fill: 'backwards' })));
     (window as unknown as { __scanImages?: () => void }).__scanImages?.();
   };
 
