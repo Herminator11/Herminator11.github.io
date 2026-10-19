@@ -7,7 +7,7 @@ import { chromium } from '@playwright/test';
 
 const base = process.argv[2] ?? 'http://localhost:4322';
 const runs = Number(process.argv[3] ?? 3);
-const paths = ['/', '/de/', '/ko/', '/#specimen'];
+const paths = ['/', '/de/', '/ko/', '/#cinemasub'];
 const cats = ['performance', 'accessibility', 'best-practices', 'seo'];
 const median = (a) => [...a].sort((x, y) => x - y)[Math.floor(a.length / 2)];
 

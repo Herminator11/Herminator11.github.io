@@ -86,22 +86,28 @@ test.describe('project modal', () => {
     await expect(page.locator('[data-thumb="0"]')).toHaveAttribute('aria-current', 'true');
   });
 
-  test('project without media opens as a single reading column with its disclosures', async ({ page }) => {
+  test('MyCharacterManager shows its disclosures and phone gallery', async ({ page }) => {
     await page.goto('/');
-    await openCard(page, 'cinemasub');
-    await expect(page.locator('.detail--text')).toBeVisible();
-    await expect(page.locator('[data-gallery]')).toHaveCount(0);
+    await openCard(page, 'mycharactermanager');
+    await expect(page.locator('[data-slide]')).toHaveCount(4);
     await expect(page.locator('.detail__notes li')).toHaveCount(2);
-    await expect(page.locator('.detail__notes')).toContainText('Next Player');
+    await expect(page.locator('.detail__notes')).toContainText('System Reference Document');
+    await expect(page.locator('.detail__notes')).toContainText('game-icons.net');
     await expect(page.locator('.detail__notes')).toContainText('Vibe-coded');
-    await page.keyboard.press('ArrowRight'); // no gallery: must not throw
     await page.keyboard.press('Escape');
     await closed(page);
+  });
+
+  test('CinemaSub credits Next Player and shows its phone gallery', async ({ page }) => {
+    await page.goto('/#cinemasub');
+    await expect(page.locator('.detail__notes')).toContainText('Next Player');
+    await expect(page.locator('[data-slide]')).toHaveCount(5);
   });
 
   test('ito states it is based on a card game', async ({ page }) => {
     await page.goto('/#ito');
     await expect(page.locator('.detail__notes')).toContainText('card game ito');
+    await expect(page.locator('[data-slide]')).toHaveCount(6);
     await page.goto('/de/#ito');
     await expect(page.locator('.detail__notes')).toContainText('Kartenspiel ito');
   });
