@@ -4,9 +4,9 @@ categories: [android]
 featured: true
 ai: true
 note:
-  en: "The local video player is built on the open-source Next Player (GPL-3.0); its licence is included in the project."
-  de: "Der lokale Videoplayer baut auf dem Open-Source-Player Next Player (GPL-3.0) auf; die Lizenz liegt dem Projekt bei."
-  ko: "로컬 동영상 플레이어는 오픈소스 Next Player(GPL-3.0)를 기반으로 하며, 해당 라이선스는 프로젝트에 포함되어 있습니다."
+  en: "Personal, non-commercial project. Uses the TMDB API; this product is not endorsed or certified by TMDB. Film and series titles and posters in the screenshots belong to their rights holders. Subtitles are found through SubDL and belong to their authors; the app hosts none. The player is based on Next Player (GPL-3.0)."
+  de: "Privates, nicht kommerzielles Projekt. Nutzt die TMDB-API; das Produkt wird von TMDB weder unterstützt noch zertifiziert. Titel und Poster von Filmen und Serien in den Screenshots gehören ihren Rechteinhabern. Untertitel werden über SubDL gefunden und gehören ihren Autoren; die App hostet keine. Der Player basiert auf Next Player (GPL-3.0)."
+  ko: "개인·비상업 프로젝트입니다. TMDB API를 사용하며, TMDB의 보증이나 인증을 받은 제품이 아닙니다. 스크린샷의 영화·시리즈 제목과 포스터는 각 권리자의 것입니다. 자막은 SubDL을 통해 찾으며 각 제작자의 것이고, 앱은 자막을 호스팅하지 않습니다. 플레이어는 Next Player(GPL-3.0)를 바탕으로 합니다."
 cover:
   src: ./media/02-cinema-view.png
   alt:

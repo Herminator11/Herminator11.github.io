@@ -2,6 +2,10 @@ slug: duemmste-fliegt
 date: "2026-10"
 categories: [web, games]
 ai: true
+note:
+  en: "Unofficial, personal host tool for a quiz game format, not published or offered as a product. The name and the format belong to their creators; this project is not affiliated with them."
+  de: "Inoffizielles, privates Moderationswerkzeug für ein Quizspiel-Format, nicht veröffentlicht und nicht als Produkt angeboten. Der Name und das Format gehören ihren Urhebern; das Projekt steht in keiner Verbindung zu ihnen."
+  ko: "퀴즈 게임 형식을 위한 비공식 개인용 진행 도구이며, 배포하거나 제품으로 제공하지 않습니다. 이름과 형식은 원 제작자의 것이며, 이 프로젝트는 그들과 관련이 없습니다."
 cover:
   src: ./media/01-game-screen.png
   alt:

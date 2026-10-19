@@ -3,9 +3,9 @@ date: "2026-10"
 categories: [web]
 ai: true
 note:
-  en: "Built for my own use, self-hosted. Spell, class and race data come from the D&D 5e System Reference Document 5.1 (CC-BY-4.0). Icons from game-icons.net (CC-BY-3.0)."
-  de: "Für den eigenen Gebrauch gebaut und selbst gehostet. Zauber-, Klassen- und Spezies-Daten stammen aus dem D&D 5e System Reference Document 5.1 (CC-BY-4.0). Icons von game-icons.net (CC-BY-3.0)."
-  ko: "개인 용도로 만들어 직접 호스팅하고 있습니다. 주문, 클래스, 종족 데이터는 D&D 5e System Reference Document 5.1(CC-BY-4.0)에서 가져왔습니다. 아이콘은 game-icons.net(CC-BY-3.0)에서 가져왔습니다."
+  en: "Built for my own use, self-hosted. Spell, class and race data come from the D&D 5e System Reference Document 5.1 (CC-BY-4.0). Icons from game-icons.net (CC-BY-3.0). Dungeons & Dragons is a trademark of Wizards of the Coast; this project is not affiliated with them."
+  de: "Für den eigenen Gebrauch gebaut und selbst gehostet. Zauber-, Klassen- und Spezies-Daten stammen aus dem D&D 5e System Reference Document 5.1 (CC-BY-4.0). Icons von game-icons.net (CC-BY-3.0). Dungeons & Dragons ist eine Marke von Wizards of the Coast; das Projekt steht in keiner Verbindung zu ihnen."
+  ko: "개인 용도로 만들어 직접 호스팅하고 있습니다. 주문, 클래스, 종족 데이터는 D&D 5e System Reference Document 5.1(CC-BY-4.0)에서 가져왔습니다. 아이콘은 game-icons.net(CC-BY-3.0)에서 가져왔습니다. Dungeons & Dragons는 Wizards of the Coast의 상표이며, 이 프로젝트는 그들과 관련이 없습니다."
 cover:
   src: ./media/02-overview.png
   alt:

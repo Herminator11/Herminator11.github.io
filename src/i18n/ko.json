@@ -11,7 +11,7 @@
     "prevProject": "이전 프로젝트", "nextProject": "다음 프로젝트", "gallery": "갤러리", "thumbnails": "미리보기 이미지", "playVideo": "동영상 재생"
   },
   "contact": { "heading": "연락처", "lead": "가장 확실한 연락 방법은 이메일입니다.", "phone": "전화", "location": "위치", "email": "이메일", "elsewhere": "그 밖의 채널" },
-  "footer": { "rights": "© {year} {name}", "top": "맨 위로" },
+  "footer": { "rights": "© {year} {name}", "top": "맨 위로", "legal": "법적 고지", "home": "홈" },
   "placeholder": "임시",
   "translationNote": "안내: 이 한국어 페이지는 번역본입니다. 저는 한국어를 유창하게 하지 못하며, 이 번역은 이해를 돕기 위한 참고용일 뿐입니다. 내용에 차이가 있을 경우 영어 원문이 기준입니다."
 }

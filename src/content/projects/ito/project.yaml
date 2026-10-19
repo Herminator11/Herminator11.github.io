@@ -3,9 +3,9 @@ date: "2026-08"
 categories: [android, games]
 ai: true
 note:
-  en: "Based on the card game ito. This is an unofficial digital version of that game."
-  de: "Basiert auf dem Kartenspiel ito. Dies ist eine inoffizielle digitale Umsetzung dieses Spiels."
-  ko: "카드 게임 ito를 바탕으로 한 비공식 디지털 버전입니다."
+  en: "Unofficial, non-commercial digital version of the card game ito, made as a personal idea for playing locally on phones. The game and its rights belong to its creators and publisher; this app is not affiliated with them."
+  de: "Inoffizielle, nicht kommerzielle digitale Umsetzung des Kartenspiels ito, entstanden aus einer persönlichen Idee, es lokal auf dem Handy zu spielen. Das Spiel und seine Rechte gehören den Machern und dem Verlag; die App steht in keiner Verbindung zu ihnen."
+  ko: "카드 게임 ito의 비공식·비상업적 디지털 버전으로, 휴대폰에서 로컬로 즐기고 싶다는 개인적인 아이디어에서 만들었습니다. 게임과 그 권리는 제작자와 출판사의 것이며, 이 앱은 그들과 관련이 없습니다."
 cover:
   src: ./media/04-hints.png
   alt:
@@ -14,7 +14,7 @@ cover:
     ko: "“Dieser Kosename ist kitschig” 주제의 힌트 카드 세 장: Schatzi, Zuckerschnäuzchen, Kumpel"
   focal: [0.5, 0.5]
 stack: [Kotlin, Jetpack Compose, Ktor, WebSockets, HTML, JavaScript]
-links: { github: "https://github.com/Herminator11/ito" }
+links: {}
 gallery:
   - type: image
     src: ./media/01-lobby.png

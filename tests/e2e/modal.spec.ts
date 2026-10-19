@@ -109,7 +109,7 @@ test.describe('project modal', () => {
     await expect(page.locator('.detail__notes')).toContainText('card game ito');
     await expect(page.locator('[data-slide]')).toHaveCount(6);
     await page.goto('/de/#ito');
-    await expect(page.locator('.detail__notes')).toContainText('Kartenspiel ito');
+    await expect(page.locator('.detail__notes')).toContainText('Kartenspiels ito');
   });
 
   test('prev/next project switch in place and one close still closes', async ({ page }) => {

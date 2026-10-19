@@ -2,6 +2,10 @@ slug: mywatchlist
 date: "2026-07"
 categories: [android]
 ai: true
+note:
+  en: "Personal, non-commercial project. Uses the TMDB API; this product is not endorsed or certified by TMDB. Film and series titles and posters in the screenshots belong to their rights holders."
+  de: "Privates, nicht kommerzielles Projekt. Nutzt die TMDB-API; das Produkt wird von TMDB weder unterstützt noch zertifiziert. Titel und Poster von Filmen und Serien in den Screenshots gehören ihren Rechteinhabern."
+  ko: "개인·비상업 프로젝트입니다. TMDB API를 사용하며, TMDB의 보증이나 인증을 받은 제품이 아닙니다. 스크린샷의 영화·시리즈 제목과 포스터는 각 권리자의 것입니다."
 cover:
   src: ./media/01-want-to-watch.png
   alt:

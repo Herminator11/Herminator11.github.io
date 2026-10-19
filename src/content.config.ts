@@ -82,6 +82,11 @@ const activities = defineCollection({
   }),
 });
 
+const legal = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/legal' }),
+  schema: z.object({ title: z.string(), description: z.string() }),
+});
+
 const skills = defineCollection({
   loader: file('./src/content/resume/skills.yaml'),
   schema: z.object({
@@ -155,4 +160,4 @@ const projectText = defineCollection({
   }),
 });
 
-export const collections = { site, about, categories, experience, education, activities, skills, projects, projectText };
+export const collections = { legal, site, about, categories, experience, education, activities, skills, projects, projectText };

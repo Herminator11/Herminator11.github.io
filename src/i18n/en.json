@@ -11,6 +11,6 @@
     "prevProject": "Previous project", "nextProject": "Next project", "gallery": "Gallery", "thumbnails": "Thumbnails", "playVideo": "Play video"
   },
   "contact": { "heading": "Contact", "lead": "The best way to reach me is email.", "phone": "Phone", "location": "Location", "email": "Email", "elsewhere": "Elsewhere" },
-  "footer": { "rights": "© {year} {name}", "top": "Back to top" },
+  "footer": { "rights": "© {year} {name}", "top": "Back to top", "legal": "Legal", "home": "Home" },
   "placeholder": "Placeholder"
 }

@@ -11,6 +11,7 @@ const site = await getSite(locale);
   <div class="container footer__inner">
     {t.translationNote && <p class="t-meta footer__note">{t.translationNote}</p>}
     <p class="t-meta">{fmt(t.footer.rights, { year: new Date().getFullYear(), name: site.name })}</p>
+    <a class="t-meta" href={locale === 'en' ? '/legal/' : `/${locale}/legal/`}>{t.footer.legal}</a>
     <a class="t-meta" href="#top">{t.footer.top}</a>
   </div>
 </footer>
