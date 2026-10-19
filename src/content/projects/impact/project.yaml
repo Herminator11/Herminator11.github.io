@@ -1,0 +1,58 @@
+slug: impact
+date: "2026-09"
+categories: [university]
+featured: false
+cover:
+  src: ./media/01-covers.png
+  alt:
+    en: "DanceBass screen: the two old record covers on the left, the six new audio-reactive covers on the right"
+    de: "DanceBass-Ansicht: links die beiden alten Plattencover, rechts die sechs neuen audioreaktiven Cover"
+    ko: "DanceBass 화면: 왼쪽은 기존 음반 커버 두 개, 오른쪽은 새로 만든 오디오 반응형 커버 여섯 개"
+  focal: [0.5, 0.5]
+stack: [TouchDesigner, Ableton Live, ESP32, OSC, MIDI, Affinity]
+links:
+  other:
+    - label: { en: "IMPACT on Instagram", de: "IMPACT auf Instagram", ko: "Instagram의 IMPACT" }
+      url: "https://www.instagram.com/impact_ohm/"
+gallery:
+  - type: image
+    src: ./media/01-covers.png
+    alt:
+      en: "DanceBass screen: the two old record covers on the left, the six new audio-reactive covers on the right"
+      de: "DanceBass-Ansicht: links die beiden alten Plattencover, rechts die sechs neuen audioreaktiven Cover"
+      ko: "DanceBass 화면: 왼쪽은 기존 음반 커버 두 개, 오른쪽은 새로 만든 오디오 반응형 커버 여섯 개"
+    caption:
+      en: "The first semester's two covers were dropped; I built six new audio-reactive ones."
+      de: "Die zwei Cover aus dem ersten Semester wurden verworfen; ich habe sechs neue audioreaktive gebaut."
+      ko: "첫 학기의 커버 두 개는 버리고, 오디오 반응형 커버 여섯 개를 새로 만들었습니다."
+  - type: image
+    src: ./media/02-setup.png
+    alt:
+      en: "Dark room: a projected record with coloured arrows on the left, the wooden dancepad with four glowing arrow triangles on the right"
+      de: "Dunkler Raum: links eine projizierte Schallplatte mit farbigen Pfeilen, rechts das Holz-Dancepad mit vier leuchtenden Pfeildreiecken"
+      ko: "어두운 공간: 왼쪽은 색색의 화살표가 있는 투사된 음반, 오른쪽은 빛나는 화살표 삼각형 네 개가 붙은 나무 댄스패드"
+    caption:
+      en: "The module in the room: record projection and the self-built dancepad."
+      de: "Das Modul im Raum: Plattenprojektion und das selbst gebaute Dancepad."
+      ko: "공간에 설치된 모듈: 음반 투사와 직접 만든 댄스패드."
+  - type: image
+    src: ./media/03-london-ui.png
+    alt:
+      en: "London cover, a white record with black smoke, between blue, pink and orange neon arrows"
+      de: "London-Cover, eine weiße Platte mit schwarzem Rauch, zwischen blauen, pinken und orangen Neonpfeilen"
+      ko: "파란색, 분홍색, 주황색 네온 화살표 사이에 검은 연기가 있는 흰색 음반, 런던 커버"
+    caption:
+      en: "The UI: arrows in the colours of the pad, with the record in the centre."
+      de: "Das UI: Pfeile in den Farben des Pads, die Platte in der Mitte."
+      ko: "UI: 패드와 같은 색의 화살표, 가운데에는 음반."
+  - type: image
+    src: ./media/04-berlin-cover.png
+    alt:
+      en: "Berlin cover: a purple record with a pink label and a white contour line"
+      de: "Berlin-Cover: eine violette Platte mit pinkem Label und einer weißen Konturlinie"
+      ko: "분홍색 라벨과 흰색 윤곽선이 있는 보라색 음반, 베를린 커버"
+    caption:
+      en: "One of the six covers: Berlin."
+      de: "Eines der sechs Cover: Berlin."
+      ko: "여섯 개의 커버 중 하나: 베를린."
+placeholder: false

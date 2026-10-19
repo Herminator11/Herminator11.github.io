@@ -1,4 +1,4 @@
-// Generates favicon.ico, apple-touch-icon, per-locale OG images and placeholder résumé PDFs.
+// Generates favicon.ico, apple-touch-icon, per-locale OG images.
 // Re-run after changing the name/statement in content: `node scripts/make-assets.mjs`
 import fs from 'node:fs';
 import path from 'node:path';
@@ -41,12 +41,5 @@ for (const l of ['en', 'de', 'ko']) {
   await page.close();
 }
 
-// --- placeholder résumé PDFs (EN/DE; the KO page links the EN file) ---
-for (const l of ['en', 'de']) {
-  const page = await browser.newPage();
-  await page.setContent(`<style>@font-face{font-family:S;src:url(${serif})} body{font:16px H,Helvetica,sans-serif;padding:48px;color:#14130f} h1{font:400 48px S}</style><h1>${site.name}</h1><p>${l === 'en' ? 'Placeholder résumé. Replace public/resume/resume-en.pdf with the real file.' : 'Platzhalter-Lebenslauf. Ersetze public/resume/resume-de.pdf durch die echte Datei.'}</p>`);
-  await page.pdf({ path: `public/resume/resume-${l}.pdf`, format: 'A4' });
-  await page.close();
-}
 await browser.close();
 console.log('assets written');

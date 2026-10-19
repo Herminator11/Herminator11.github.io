@@ -7,3 +7,6 @@
 - id: games
   label: { en: "Games", de: "Spiele", ko: "게임" }
   order: 3
+- id: university
+  label: { en: "University", de: "Hochschule", ko: "대학" }
+  order: 4

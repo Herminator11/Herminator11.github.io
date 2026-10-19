@@ -1,9 +1,9 @@
 ---
 statement: "Interfaces, objects and the code in between."
 statementRest: "I study Media Engineering and work where design and engineering meet."
-placeholder: true
+placeholder: false
 ---
 
-I study Media Engineering at the Technische Hochschule Nürnberg, currently as an exchange student. As a student assistant in the OhmUX team I work on UX/UI design and user research, and during a five-month internship at adesso SE I helped build a web application and rotated through Scrum roles.
+I like building things people actually use, and then watching whether they do. That is why I study Media Engineering in Nürnberg, why I designed and researched interfaces in the OhmUX team, and why I spent five months at adesso SE learning how a real web application gets built and what changes when you swap Scrum roles every two weeks.
 
-Outside of class I organise a recurring board game night for students, play tennis and play the saxophone. Draft text based on the CV: rewrite it in your own voice.
+This autumn I am an exchange student at Konkuk University in Seoul, with courses in AI and social media content. It is my third trip to Korea; the first was as a tourist, the second a Winter School at Ajou University. I am working on my Korean, and I like bringing people together: my student game night regularly fills a room with more than 30 people.

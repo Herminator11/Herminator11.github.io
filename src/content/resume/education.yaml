@@ -3,6 +3,16 @@
   degree: { en: "B.Eng. Media Engineering", de: "B.Eng. Media Engineering", ko: "공학사(B.Eng.) 미디어 엔지니어링" }
   start: "2023-10"
   end: present
+- id: konkuk
+  org: Konkuk University
+  degree: { en: "Exchange semester", de: "Austauschsemester", ko: "교환학생" }
+  start: "2026-09"
+  end: "2026-12"
+  location: Seoul
+  summary:
+    en: "Courses in AI and social media content."
+    de: "Kurse zu KI und Social-Media-Inhalten."
+    ko: "AI 및 소셜 미디어 콘텐츠 수업 수강."
 - id: ajou
   org: Ajou University
   degree: { en: "Winter School", de: "Winter School", ko: "동계 학기(Winter School)" }

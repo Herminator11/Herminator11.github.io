@@ -4,7 +4,7 @@ Single-page, bilingual (EN `/`, DE `/de/`) portfolio. Astro 7 + TypeScript (stri
 
 ## Commands
 - `npm run dev` / `npm run build` / `npx astro preview --port 4322 --ignore-lock` (Astro 7 `preview` daemonizes unless `--ignore-lock`; use `astro dev --background`, `astro dev stop` for the dev server)
-- `npm run check` (astro check + contrast script), `node scripts/check-placeholders.mjs [--strict]` (runs before every build; use --strict pre-launch), `node scripts/make-assets.mjs` (favicon.ico, apple-touch, OG images per locale, placeholder résumé PDFs; re-run after name/statement changes)
+- `npm run check` (astro check + contrast script), `node scripts/check-placeholders.mjs [--strict]` (runs before every build; use --strict pre-launch), `node scripts/make-assets.mjs` (favicon.ico, apple-touch, OG images per locale; re-run after name/statement changes)
 - `npm run check` (astro check + types), `npm run test:e2e` (Playwright: chromium/webkit/firefox), `npm run lighthouse`
 - `npm run new-project -- <slug> --categories a,b`, `npm run capture -- <url> --slug <slug>`
 

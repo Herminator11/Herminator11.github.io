@@ -4,7 +4,7 @@ test.describe('projects grid', () => {
   test('filter chips filter, count and aria-pressed update', async ({ page }) => {
     await page.goto('/');
     const cards = page.locator('[data-card]:not([hidden])');
-    await expect(cards).toHaveCount(5);
+    await expect(cards).toHaveCount(6);
     await expect(page.locator('[data-filter="all"]')).toHaveAttribute('aria-pressed', 'true');
 
     await page.locator('[data-filter="android"]').click();
@@ -17,7 +17,7 @@ test.describe('projects grid', () => {
     await expect(cards).toHaveCount(2); // duemmste-fliegt + ito
     await expect(page.locator('[data-count-live]')).toHaveText('2 projects');
     await page.locator('[data-filter="all"]').click();
-    await expect(cards).toHaveCount(5);
+    await expect(cards).toHaveCount(6);
   });
 
   test('German labels', async ({ page }) => {
