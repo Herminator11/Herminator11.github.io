@@ -3,8 +3,9 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
-// TODO(domain): replace once the real domain is known; used for canonical, OG and sitemap.
-const site = 'https://example.com';
+// Used for canonical, OG and sitemap. GitHub Pages user site (repo Herminator11.github.io), served from the root.
+// Replace when a custom domain is added.
+const site = 'https://herminator11.github.io';
 
 export default defineConfig({
   site,

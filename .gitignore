@@ -27,3 +27,7 @@ pnpm-debug.log*
 tests/.output/
 tests/screenshots/
 lighthouse/
+
+# local assistant files and private notes
+.claude/
+notes/
