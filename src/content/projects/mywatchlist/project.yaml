@@ -14,7 +14,7 @@ cover:
     ko: "시리즈 포스터가 있는 보고 싶은 목록"
   focal: [0.5, 0.3]
 stack: [Kotlin, Jetpack Compose, Room, Retrofit, TMDB]
-links: { github: "https://github.com/Herminator11/MyWatchlist" }
+links: { github: "https://github.com/Herminator11/MyWatchlist-Android" }
 gallery:
   - type: image
     src: ./media/01-want-to-watch.png
