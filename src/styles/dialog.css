@@ -36,10 +36,12 @@ html.dialog-open { overflow: hidden; }
 .dialog__close:active { transform: scale(0.94); }
 
 .detail__title:focus { outline: none; }
+/* One-word titles ("MyCharacterManager") must not widen the text column: shrink to fit it instead. */
+.detail__title { font-size: min(var(--text-2xl), 14cqi); }
 
 /* ---------- Gallery ---------- */
-.detail__gallery { background: var(--surface); display: grid; grid-template-rows: minmax(0, 1fr) auto; min-height: 0; }
-.gallery__viewport { position: relative; aspect-ratio: 4 / 3; min-height: 0; }
+.detail__gallery { background: var(--surface); display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; min-height: 0; min-width: 0; }
+.gallery__viewport { position: relative; width: 100%; height: min(62svh, calc(100vw / var(--gallery-ratio, 1.333))); min-height: 0; }
 .gallery__track { display: flex; height: 100%; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .gallery__track::-webkit-scrollbar { display: none; }
 .slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: center; scroll-snap-stop: always; display: grid; grid-template-rows: minmax(0, 1fr) auto; margin: 0; }
@@ -65,7 +67,7 @@ html.dialog-open { overflow: hidden; }
 .thumb__play::after { content: ''; border-left: 10px solid #fff; border-block: 6px solid transparent; filter: drop-shadow(0 0 2px rgb(0 0 0 / 0.6)); }
 
 /* ---------- Text column ---------- */
-.detail__text { padding: 2rem var(--gutter) 3rem; display: grid; gap: 1.5rem; align-content: start; }
+.detail__text { padding: 2rem var(--gutter) 3rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; align-content: start; container-type: inline-size; }
 .detail__facts { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; margin: 0; padding-right: 3.5rem; }
 .detail__summary { font-size: var(--text-lg); line-height: 1.35; color: var(--ink-muted); }
 .detail__notes { list-style: none; margin: 0; padding: 0 0 0 1rem; border-left: 2px solid var(--accent); display: grid; gap: 0.5rem; font-size: var(--text-sm); }
@@ -96,8 +98,9 @@ html.dialog-open { overflow: hidden; }
     box-shadow: 0 1px 0 var(--rule), 0 8px 24px rgb(0 0 0 / 0.12), 0 32px 80px rgb(0 0 0 / 0.28);
   }
   .dialog__close { position: absolute; top: 1rem; right: 1rem; }
+  .dialog__mount { height: 100%; } /* gives .detail a definite height so tall images are contained */
   .detail { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(24rem, 1fr); height: 100%; }
-  .gallery__viewport { aspect-ratio: auto; }
+  .gallery__viewport { height: auto; }
   .detail__gallery { height: 100%; border-right: 1px solid var(--rule); }
   .detail__text { overflow-y: auto; overscroll-behavior: contain; padding: 3rem 2.5rem 3rem; }
   .detail--text { grid-template-columns: minmax(0, 1fr); }

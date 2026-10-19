@@ -6,6 +6,54 @@ note:
   en: "Built for my own use, self-hosted. Spell, class and race data come from the D&D 5e System Reference Document 5.1 (CC-BY-4.0). Icons from game-icons.net (CC-BY-3.0)."
   de: "Für den eigenen Gebrauch gebaut und selbst gehostet. Zauber-, Klassen- und Spezies-Daten stammen aus dem D&D 5e System Reference Document 5.1 (CC-BY-4.0). Icons von game-icons.net (CC-BY-3.0)."
   ko: "개인 용도로 만들어 직접 호스팅하고 있습니다. 주문, 클래스, 종족 데이터는 D&D 5e System Reference Document 5.1(CC-BY-4.0)에서 가져왔습니다. 아이콘은 game-icons.net(CC-BY-3.0)에서 가져왔습니다."
+cover:
+  src: ./media/02-overview.png
+  alt:
+    en: "Overview of the fighter Verso with portrait, armour class, initiative, speed and hit points"
+    de: "Übersicht des Kämpfers Verso mit Portrait, Rüstungsklasse, Initiative, Bewegung und Trefferpunkten"
+    ko: "초상화, 방어도, 우선권, 이동 속도, 히트 포인트가 보이는 파이터 Verso의 개요"
+  focal: [0.5, 0.25]
 stack: [TypeScript, Next.js, SQLite, Drizzle, Tailwind CSS]
 links: {}
+gallery:
+  - type: image
+    src: ./media/01-library.png
+    alt:
+      en: "Character list with four characters, the PDF import and the form for a new character"
+      de: "Charakterliste mit vier Charakteren, dem PDF-Import und dem Formular für einen neuen Charakter"
+      ko: "캐릭터 네 명, PDF 가져오기, 새 캐릭터 입력란이 있는 캐릭터 목록"
+    caption:
+      en: "The character list: one tap opens a character; below are the PDF import and a form for a new one."
+      de: "Die Charakterliste: Ein Tipp öffnet einen Charakter, darunter der PDF-Import und ein Formular für einen neuen."
+      ko: "캐릭터 목록: 한 번 탭하면 캐릭터가 열리고, 아래에 PDF 가져오기와 새 캐릭터 입력란이 있습니다."
+  - type: image
+    src: ./media/02-overview.png
+    alt:
+      en: "Overview of the fighter Verso with portrait, armour class, initiative, speed and hit points"
+      de: "Übersicht des Kämpfers Verso mit Portrait, Rüstungsklasse, Initiative, Bewegung und Trefferpunkten"
+      ko: "초상화, 방어도, 우선권, 이동 속도, 히트 포인트가 보이는 파이터 Verso의 개요"
+    caption:
+      en: "The overview: the numbers needed at the table, worked out from class, level and ability scores."
+      de: "Die Übersicht: die Werte, die man am Tisch braucht, berechnet aus Klasse, Stufe und Attributen."
+      ko: "개요: 게임 중 필요한 수치를 클래스, 레벨, 능력치로 계산해 보여 줍니다."
+  - type: image
+    src: ./media/03-spells.png
+    alt:
+      en: "Spell page of a sorcerer and warlock with spell slots, pact magic and filters for level and casting time"
+      de: "Zauberseite eines Sorcerer und Warlock mit Zauberplätzen, Paktmagie und Filtern für Grad und Wirkzeit"
+      ko: "주문 슬롯, 계약 마법, 레벨·시전 시간 필터가 있는 소서러 겸 워락의 주문 화면"
+    caption:
+      en: "Spells: slots and pact magic as separate pools, with filters for level, casting time and school."
+      de: "Zauber: Zauberplätze und Paktmagie als getrennte Pools, dazu Filter für Grad, Wirkzeit und Schule."
+      ko: "주문: 주문 슬롯과 계약 마법을 따로 관리하고, 레벨·시전 시간·학파로 거를 수 있습니다."
+  - type: image
+    src: ./media/04-battle.png
+    alt:
+      en: "Combat mode with action, bonus action and reaction, hit points at 31 of 43 and two used spell slots"
+      de: "Kampfmodus mit Aktion, Bonusaktion und Reaktion, Trefferpunkten bei 31 von 43 und zwei verbrauchten Zauberplätzen"
+      ko: "행동, 보너스 행동, 반응, 43 중 31의 히트 포인트, 사용한 주문 슬롯 두 개가 보이는 전투 모드"
+    caption:
+      en: "Combat mode: the turn, hit points and spell slots, each change a single tap."
+      de: "Kampfmodus: Zug, Trefferpunkte und Zauberplätze, jede Änderung ein Tipp."
+      ko: "전투 모드: 턴, 히트 포인트, 주문 슬롯을 각각 한 번의 탭으로 바꿉니다."
 placeholder: false

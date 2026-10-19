@@ -16,6 +16,13 @@ for (const p of projects) {
     }
   }
 }
+// Mobile gallery box follows the first item's shape (phone screenshots stay large), clamped to 3:5 .. 16:9.
+const galleryRatio = (p: Project) => {
+  const g = p.gallery[0];
+  const img = g?.type === 'image' ? g.src : g?.type === 'video' ? g.poster : undefined;
+  const r = img ? img.width / img.height : 4 / 3;
+  return Math.min(16 / 9, Math.max(0.6, r));
+};
 const posters = new Map<string, string>();
 for (const p of projects)
   for (const [i, g] of p.gallery.entries())
@@ -41,7 +48,7 @@ for (const p of projects)
       <article class:list={['detail', p.gallery.length === 0 && 'detail--text']}>
         {p.gallery.length > 0 && (
         <div class="detail__gallery" data-gallery role="group" aria-roledescription="carousel" aria-label={`${t.projects.gallery}: ${p.title}`}>
-          <div class="gallery__viewport">
+          <div class="gallery__viewport" style={`--gallery-ratio:${galleryRatio(p).toFixed(3)}`}>
             <div class="gallery__track" data-track tabindex="0" aria-label={t.projects.gallery}>
               {p.gallery.map((g, i) => (
                 <figure class="slide" data-slide role="group" aria-roledescription="slide" aria-label={`${t.projects.image} ${i + 1} ${t.projects.of} ${p.gallery.length}`}>

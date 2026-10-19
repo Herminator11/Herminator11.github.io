@@ -2,6 +2,64 @@ slug: mywatchlist
 date: "2026-07"
 categories: [android]
 ai: true
+cover:
+  src: ./media/01-want-to-watch.png
+  alt:
+    en: "Want to Watch list with series posters"
+    de: "„Will ich sehen“-Liste mit Serienpostern"
+    ko: "시리즈 포스터가 있는 보고 싶은 목록"
+  focal: [0.5, 0.3]
 stack: [Kotlin, Jetpack Compose, Room, Retrofit, TMDB]
 links: {}
+gallery:
+  - type: image
+    src: ./media/01-want-to-watch.png
+    alt:
+      en: "Want to Watch list with series posters"
+      de: "„Will ich sehen“-Liste mit Serienpostern"
+      ko: "시리즈 포스터가 있는 보고 싶은 목록"
+    caption:
+      en: "Want to Watch, split into series and films."
+      de: "„Will ich sehen“, getrennt nach Serien und Filmen."
+      ko: "시리즈와 영화로 나뉜 보고 싶은 목록입니다."
+  - type: image
+    src: ./media/02-detail.png
+    alt:
+      en: "Detail sheet of a series with seasons and episode counts"
+      de: "Detailansicht einer Serie mit Staffeln und Folgenzahl"
+      ko: "시즌과 에피소드 수가 표시된 시리즈 상세 화면"
+    caption:
+      en: "Details from TMDB: genres, seasons, episodes, release date and cast."
+      de: "Details von TMDB: Genres, Staffeln, Folgen, Erscheinungsdatum und Besetzung."
+      ko: "TMDB 정보: 장르, 시즌, 에피소드, 공개일, 출연진."
+  - type: image
+    src: ./media/03-favorites.png
+    alt:
+      en: "Favourite series with filter chips"
+      de: "Lieblingsserien mit Filtern"
+      ko: "필터가 있는 즐겨찾는 시리즈"
+    caption:
+      en: "Favourites with filters for live action, animation and anime."
+      de: "Favoriten mit Filtern für Realserien, Animation und Anime."
+      ko: "실사, 애니메이션, 아니메 필터가 있는 즐겨찾기입니다."
+  - type: image
+    src: ./media/04-recently-watched.png
+    alt:
+      en: "Recently watched list grouped by year"
+      de: "Zuletzt gesehen, nach Jahr gruppiert"
+      ko: "연도별로 묶인 최근 본 목록"
+    caption:
+      en: "Recently watched, grouped by year with the date finished."
+      de: "Zuletzt gesehen, nach Jahr gruppiert mit Abschlussdatum."
+      ko: "최근 본 작품을 연도별로 묶고 다 본 날짜를 표시합니다."
+  - type: image
+    src: ./media/05-search.png
+    alt:
+      en: "Search results with an add button per title"
+      de: "Suchergebnisse mit Hinzufügen-Knopf je Titel"
+      ko: "작품마다 추가 버튼이 있는 검색 결과"
+    caption:
+      en: "Search: swipe right or tap plus to save a title."
+      de: "Suche: nach rechts wischen oder Plus tippen, um einen Titel zu speichern."
+      ko: "검색: 오른쪽으로 밀거나 더하기를 눌러 작품을 저장합니다."
 placeholder: false

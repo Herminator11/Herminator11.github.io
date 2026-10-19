@@ -6,6 +6,74 @@ note:
   en: "Based on the card game ito. This is an unofficial digital version of that game."
   de: "Basiert auf dem Kartenspiel ito. Dies ist eine inoffizielle digitale Umsetzung dieses Spiels."
   ko: "카드 게임 ito를 바탕으로 한 비공식 디지털 버전입니다."
+cover:
+  src: ./media/04-hints.png
+  alt:
+    en: "Three hint cards for the topic “Dieser Kosename ist kitschig”: Schatzi, Zuckerschnäuzchen, Kumpel"
+    de: "Drei Hinweiskarten zum Thema „Dieser Kosename ist kitschig“: Schatzi, Zuckerschnäuzchen, Kumpel"
+    ko: "“Dieser Kosename ist kitschig” 주제의 힌트 카드 세 장: Schatzi, Zuckerschnäuzchen, Kumpel"
+  focal: [0.5, 0.5]
 stack: [Kotlin, Jetpack Compose, Ktor, WebSockets, HTML, JavaScript]
 links: {}
+gallery:
+  - type: image
+    src: ./media/01-lobby.png
+    alt:
+      en: "Host lobby with QR code, a German/English switch and three joined players"
+      de: "Host-Lobby mit QR-Code, Umschalter Deutsch/Englisch und drei beigetretenen Spielern"
+      ko: "QR 코드, 독일어/영어 전환, 참가한 플레이어 세 명이 보이는 호스트 로비"
+    caption:
+      en: "The host's lobby: players scan the QR code and join in the browser; the host picks German or English."
+      de: "Die Lobby des Hosts: Spieler scannen den QR-Code und treten im Browser bei, der Host wählt Deutsch oder Englisch."
+      ko: "호스트 로비: 플레이어는 QR 코드를 찍어 브라우저로 참가하고, 호스트는 독일어나 영어를 고릅니다."
+  - type: image
+    src: ./media/02-topic-vote.png
+    alt:
+      en: "Topic vote with three topics and the votes cast while the roulette runs"
+      de: "Themenwahl mit drei Themen und den abgegebenen Stimmen, während das Roulette läuft"
+      ko: "룰렛이 도는 동안 세 가지 주제와 투표 결과가 보이는 주제 선택 화면"
+    caption:
+      en: "Players vote on one of three topics, then a roulette draws the topic."
+      de: "Die Spieler stimmen über drei Themen ab, dann lost ein Roulette das Thema aus."
+      ko: "플레이어가 세 가지 주제 중 하나에 투표하면 룰렛이 주제를 뽑습니다."
+  - type: image
+    src: ./media/03-player-card.png
+    alt:
+      en: "A player's phone showing the secret number 79 on a card, with a field for the hint"
+      de: "Handy eines Spielers mit der geheimen Zahl 79 auf einer Karte und einem Feld für den Hinweis"
+      ko: "카드에 비밀 숫자 79가 보이고 힌트 입력란이 있는 플레이어의 휴대폰"
+    caption:
+      en: "On their own phone, each player sees a secret number and types a hint."
+      de: "Auf dem eigenen Handy sieht jeder Spieler eine geheime Zahl und tippt einen Hinweis."
+      ko: "각 플레이어는 자기 휴대폰에서 비밀 숫자를 보고 힌트를 입력합니다."
+  - type: image
+    src: ./media/04-hints.png
+    alt:
+      en: "Three hint cards for the topic “Dieser Kosename ist kitschig”: Schatzi, Zuckerschnäuzchen, Kumpel"
+      de: "Drei Hinweiskarten zum Thema „Dieser Kosename ist kitschig“: Schatzi, Zuckerschnäuzchen, Kumpel"
+      ko: "“Dieser Kosename ist kitschig” 주제의 힌트 카드 세 장: Schatzi, Zuckerschnäuzchen, Kumpel"
+    caption:
+      en: "The host reveals the hints one by one."
+      de: "Der Host deckt die Hinweise nacheinander auf."
+      ko: "호스트가 힌트를 하나씩 공개합니다."
+  - type: image
+    src: ./media/05-ordering.png
+    alt:
+      en: "Sorting screen with the hint cards in order from high to low"
+      de: "Sortieransicht mit den Hinweiskarten in der Reihenfolge von hoch nach niedrig"
+      ko: "힌트 카드를 높은 순서대로 정렬하는 화면"
+    caption:
+      en: "The group sorts the cards from high to low by dragging them."
+      de: "Die Gruppe sortiert die Karten per Ziehen von hoch nach niedrig."
+      ko: "모두 함께 카드를 끌어서 높은 순서대로 정렬합니다."
+  - type: image
+    src: ./media/06-reveal.png
+    alt:
+      en: "Revealed cards 79, 53 and 7 with the banner “Perfekt sortiert!”"
+      de: "Aufgedeckte Karten 79, 53 und 7 mit dem Banner „Perfekt sortiert!“"
+      ko: "공개된 카드 79, 53, 7과 “Perfekt sortiert!” 배너"
+    caption:
+      en: "The reveal: the cards flip over, and the app shows whether the order held."
+      de: "Das Aufdecken: Die Karten drehen sich um, und die App zeigt, ob die Reihenfolge gestimmt hat."
+      ko: "공개 단계: 카드가 뒤집히고, 순서가 맞았는지 앱이 보여 줍니다."
 placeholder: false
