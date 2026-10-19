@@ -26,7 +26,7 @@ for (const [path, lang] of [['/', 'en'], ['/de/', 'de'], ['/ko/', 'ko']] as cons
 }
 
 test('static assets exist', async ({ request }) => {
-  for (const p of ['/favicon.svg', '/favicon.ico', '/apple-touch-icon.png', '/og/og-default-en.png', '/og/og-default-de.png', '/og/og-default-ko.png', '/resume/resume-en.pdf', '/robots.txt', '/sitemap-index.xml']) {
+  for (const p of ['/favicon.svg', '/favicon.ico', '/apple-touch-icon.png', '/og/og-default-en.png', '/og/og-default-de.png', '/og/og-default-ko.png', '/resume/resume-en.pdf', '/resume/resume-de.pdf', '/robots.txt', '/sitemap-index.xml']) {
     const r = await request.get(p);
     expect(r.status(), p).toBe(200);
   }

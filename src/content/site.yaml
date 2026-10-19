@@ -6,7 +6,7 @@ location: { en: "Nuremberg, Germany", de: "Nürnberg, Deutschland", ko: "독일 
 socials:
   - { label: GitHub, url: "https://github.com/Herminator11" }
   - { label: LinkedIn, url: "https://www.linkedin.com/in/hermann-adolf-500a512ba/" }
-resume: { en: "/resume/resume-en.pdf", de: "/resume/resume-en.pdf", ko: "/resume/resume-en.pdf" }
+resume: { en: "/resume/resume-en.pdf", de: "/resume/resume-de.pdf", ko: "/resume/resume-en.pdf" }
 seo:
   title: { en: "Hermann Adolf: Media Engineering student", de: "Hermann Adolf: Student Media Engineering", ko: "Hermann Adolf: 미디어 엔지니어링 전공 학생" }
   description:
