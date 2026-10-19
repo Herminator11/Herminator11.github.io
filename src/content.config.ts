@@ -82,6 +82,18 @@ const activities = defineCollection({
   }),
 });
 
+const outside = defineCollection({
+  loader: file('./src/content/outside.yaml'),
+  schema: z.object({
+    id: z.string(),
+    order: z.number(),
+    label: L,
+    text: L,
+    project: z.string().optional(), // project slug to link
+    former: z.boolean().default(false), // shown with a "former" tag
+  }),
+});
+
 const legal = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/legal' }),
   schema: z.object({ title: z.string(), description: z.string() }),
@@ -160,4 +172,4 @@ const projectText = defineCollection({
   }),
 });
 
-export const collections = { legal, site, about, categories, experience, education, activities, skills, projects, projectText };
+export const collections = { legal, site, about, categories, experience, education, activities, outside, skills, projects, projectText };

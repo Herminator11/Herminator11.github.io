@@ -3,6 +3,7 @@
   "skip": "본문으로 건너뛰기",
   "theme": { "label": "화면 모드", "system": "시스템", "light": "라이트", "dark": "다크" },
   "lang": { "label": "언어", "en": "English", "de": "Deutsch", "ko": "한국어", "switchTo": "한국어" },
+  "outside": { "former": "과거", "heading": "코드 밖에서", "project": "프로젝트 보기" },
   "resume": { "heading": "이력서", "experience": "경력", "education": "학력", "activities": "교외 활동", "skills": "기술", "download": "이력서 다운로드 (PDF, 영어)", "present": "현재" },
   "projects": {
     "heading": "프로젝트", "all": "전체", "filter": "프로젝트 필터", "count_one": "프로젝트 {n}개", "count_other": "프로젝트 {n}개",

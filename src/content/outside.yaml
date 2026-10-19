@@ -1,0 +1,60 @@
+- id: board-games
+  order: 1
+  label: { en: "Board games", de: "Brettspiele", ko: "보드 게임" }
+  text:
+    en: "Card and board games are why I run a student game night, and why ito exists as an app."
+    de: "Karten- und Brettspiele sind der Grund für meinen Spieleabend an der Uni und dafür, dass es ito als App gibt."
+    ko: "카드·보드 게임 덕분에 학생 게임 모임을 운영하게 되었고, ito 앱도 만들게 되었습니다."
+  project: ito
+- id: video-games
+  order: 2
+  label: { en: "Video games", de: "Videospiele", ko: "비디오 게임" }
+  text:
+    en: "I play a lot and pay attention to how games explain themselves without a tutorial."
+    de: "Ich spiele viel und achte darauf, wie Spiele sich ohne Tutorial erklären."
+    ko: "게임을 많이 하며, 튜토리얼 없이도 게임이 스스로를 설명하는 방식에 주목합니다."
+- id: esports
+  order: 3
+  label: { en: "Esports", de: "E-Sport", ko: "e스포츠" }
+  text:
+    en: "I follow competitive gaming, matches and the scene around them."
+    de: "Ich verfolge den kompetitiven Spielbereich, die Matches und die Szene drumherum."
+    ko: "경쟁 게임 경기와 그 주변 씬을 챙겨 봅니다."
+- id: film-series
+  order: 4
+  label: { en: "Films and series", de: "Filme und Serien", ko: "영화와 시리즈" }
+  text:
+    en: "I watch a lot, often with subtitles in a second language. CinemaSub came out of that."
+    de: "Ich schaue viel, oft mit Untertiteln in einer zweiten Sprache. Daraus ist CinemaSub entstanden."
+    ko: "영화와 시리즈를 많이 보고, 종종 제2 언어 자막으로 봅니다. CinemaSub는 거기서 나왔습니다."
+  project: cinemasub
+- id: korea
+  order: 5
+  label: { en: "Korea", de: "Korea", ko: "한국" }
+  text:
+    en: "Three trips so far, now an exchange semester in Seoul. I am learning Korean, which is why this site has a Korean version."
+    de: "Bisher drei Reisen, jetzt ein Austauschsemester in Seoul. Ich lerne Koreanisch, deshalb gibt es diese Seite auch auf Koreanisch."
+    ko: "지금까지 세 번 방문했고, 현재는 서울에서 교환학생으로 지내고 있습니다. 한국어를 배우고 있어서 이 사이트에도 한국어 버전이 있습니다."
+- id: tennis
+  order: 6
+  label: { en: "Tennis", de: "Tennis", ko: "테니스" }
+  text:
+    en: "My regular sport, at TSV Stein."
+    de: "Mein regelmäßiger Sport, beim TSV Stein."
+    ko: "정기적으로 하는 운동으로, TSV Stein에서 합니다."
+- id: saxophone
+  order: 7
+  former: true
+  label: { en: "Saxophone", de: "Saxophon", ko: "색소폰" }
+  text:
+    en: "I played it for years. Today other things take the time."
+    de: "Habe ich lange gespielt. Heute nehmen andere Dinge die Zeit."
+    ko: "오랫동안 연주했습니다. 지금은 다른 일에 시간을 씁니다."
+- id: figure-skating
+  order: 8
+  former: true
+  label: { en: "Figure skating", de: "Eiskunstlauf", ko: "피겨 스케이팅" }
+  text:
+    en: "I skated with ECN in the past."
+    de: "Früher beim ECN gelaufen."
+    ko: "예전에 ECN에서 스케이팅을 했습니다."

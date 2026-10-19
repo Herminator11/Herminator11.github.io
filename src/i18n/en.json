@@ -3,6 +3,7 @@
   "skip": "Skip to content",
   "theme": { "label": "Theme", "system": "System", "light": "Light", "dark": "Dark" },
   "lang": { "label": "Language", "en": "English", "de": "Deutsch", "ko": "한국어", "switchTo": "Deutsch" },
+  "outside": { "former": "Former", "heading": "Beyond code", "project": "See project" },
   "resume": { "heading": "Résumé", "experience": "Experience", "education": "Education", "activities": "Extracurricular", "skills": "Skills", "download": "Download résumé (PDF)", "present": "Present" },
   "projects": {
     "heading": "Projects", "all": "All", "filter": "Filter projects", "count_one": "{n} project", "count_other": "{n} projects",

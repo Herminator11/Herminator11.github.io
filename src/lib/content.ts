@@ -58,6 +58,11 @@ export async function getAbout(locale: Locale) {
   return { ...entry.data, Content };
 }
 
+export async function getOutside(locale: Locale) {
+  const all = (await getCollection('outside')).map((e) => e.data);
+  return all.sort((a, b) => a.order - b.order).map((o) => ({ id: o.id, label: loc(o.label, locale), text: loc(o.text, locale), project: o.project, former: o.former }));
+}
+
 export async function getCategories(locale: Locale) {
   const all = (await getCollection('categories')).map((c) => c.data);
   return all.sort((a, b) => a.order - b.order).map((c) => ({ id: c.id, label: loc(c.label, locale) }));

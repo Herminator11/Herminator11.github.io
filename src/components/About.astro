@@ -1,12 +1,13 @@
 ---
 import SectionShell from './SectionShell.astro';
-import { getAbout, getSite } from '../lib/content';
+import { getAbout, getSite, getOutside } from '../lib/content';
 import { getStrings, type Locale } from '../lib/i18n';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = getStrings(locale);
 const { Content } = await getAbout(locale);
 const site = await getSite(locale);
+const outside = await getOutside(locale);
 ---
 
 <SectionShell id="about" title={t.nav.about}>
@@ -17,6 +18,20 @@ const site = await getSite(locale);
       <div><dt class="t-meta">{t.contact.location}</dt><dd>{site.location}</dd></div>
     </dl>
   </div>
+  <section class="outside" data-reveal aria-labelledby="outside-h">
+    <h3 id="outside-h" class="t-meta">{t.outside.heading}</h3>
+    <ul class="outside__list">
+      {outside.map((o) => (
+        <li>
+          <span class="t-meta outside__label">{o.label}{o.former && <span class="outside__former"> · {t.outside.former}</span>}</span>
+          <p>
+            {o.text}
+            {o.project && <> <a href={`#${o.project}`} class="outside__link">{t.outside.project}</a></>}
+          </p>
+        </li>
+      ))}
+    </ul>
+  </section>
 </SectionShell>
 
 <style>
@@ -24,4 +39,14 @@ const site = await getSite(locale);
   .about__text { display: grid; gap: 1.25rem; font-size: var(--text-lg); line-height: 1.5; max-width: 40rem; }
   .about__facts { margin: 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); border-top: 1px solid var(--rule); padding-top: 1.5rem; }
   .about__facts dd { margin: 0.25rem 0 0; }
+  .outside { margin-top: 3rem; border-top: 1px solid var(--rule); padding-top: 1.5rem; display: grid; gap: 1rem; }
+  .outside__list { list-style: none; margin: 0; padding: 0; display: grid; }
+  .outside__list li { display: grid; gap: 0.25rem; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+  .outside__list p { margin: 0; max-width: 40rem; hyphens: manual; }
+  .outside__label { color: var(--ink-muted); }
+  .outside__link { color: inherit; text-decoration: underline; text-underline-offset: 0.2em; text-decoration-color: var(--rule); }
+  .outside__link:hover { text-decoration-color: var(--accent); }
+  @media (min-width: 48rem) {
+    .outside__list li { grid-template-columns: 12rem 1fr; gap: 2rem; }
+  }
 </style>
