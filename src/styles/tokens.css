@@ -43,6 +43,17 @@
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
+  /* Glass (backdrop blur). The modal backdrop is the prominent one; the header is a thin frost.
+     Header tint = share of --bg laid over the blurred page. scripts/contrast.mjs reads the two
+     tint values and fails the check if nav text could drop below AA over any content. */
+  --glass-blur: 24px;
+  --glass-saturate: 1.1;
+  --glass-blur-sm: 10px;
+  --header-glass-blur: 28px;
+  --header-glass-saturate: 1.8;
+  --header-tint-top: 92%;
+  --header-tint-bottom: 88%;
+
   /* Semantic colors exposed to Tailwind utilities */
   --color-bg: var(--bg);
   --color-surface: var(--surface);

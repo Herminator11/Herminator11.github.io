@@ -50,9 +50,25 @@ const links = [
 
 <style>
   .header { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 4rem; }
-  /* Blur layer: only its opacity animates. */
-  .header__bg { position: absolute; inset: 0; background: linear-gradient(to bottom, color-mix(in srgb, var(--bg) 72%, transparent), color-mix(in srgb, var(--bg) 52%, transparent)); backdrop-filter: blur(28px) saturate(1.8); -webkit-backdrop-filter: blur(28px) saturate(1.8); border-bottom: 1px solid var(--rule); opacity: 0; transition: opacity var(--dur-2) var(--ease-out); }
-  :global(.is-scrolled) .header__bg { opacity: 1; }
+  /* Blur layer: only its opacity animates. Hidden (not painted, no blur cost) until scrolled;
+     the visibility delay lets the fade-out finish first. Tint values keep nav text AA over any
+     content (checked in scripts/contrast.mjs). */
+  .header__bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--bg) var(--header-tint-top), transparent), color-mix(in srgb, var(--bg) var(--header-tint-bottom), transparent));
+    backdrop-filter: blur(var(--header-glass-blur)) saturate(var(--header-glass-saturate));
+    border-bottom: 1px solid var(--rule);
+    opacity: 0; visibility: hidden;
+    transition: opacity var(--dur-2) var(--ease-out), visibility 0s linear var(--dur-2);
+  }
+  :global(.is-scrolled) .header__bg { opacity: 1; visibility: visible; transition-delay: 0s; }
+  /* No blur available or wanted: a solid bar, so page text never shows through the nav. */
+  @supports not (backdrop-filter: blur(1px)) {
+    .header__bg { background: var(--bg); }
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    .header__bg { background: var(--bg); backdrop-filter: none; }
+  }
   .header__inner { position: relative; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .header__brand { font-family: var(--font-display); font-size: 1.5rem; text-decoration: none; line-height: 1; white-space: nowrap; }
   .header__nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(0.875rem, 3vw, 1.75rem); }

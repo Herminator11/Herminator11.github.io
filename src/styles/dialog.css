@@ -8,8 +8,7 @@ html.dialog-open { overflow: hidden; }
 .dialog:not([open]) { display: none; }
 .dialog::backdrop {
   background: var(--backdrop);
-  backdrop-filter: blur(24px) saturate(1.1);
-  -webkit-backdrop-filter: blur(24px) saturate(1.1);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   opacity: 0;
   transition: opacity var(--dur-2) var(--ease-out);
 }
@@ -29,7 +28,7 @@ html.dialog-open { overflow: hidden; }
   position: fixed; top: 0.75rem; right: 0.75rem; z-index: 6; display: grid; place-items: center;
   width: 2.75rem; height: 2.75rem; padding: 0; color: var(--ink);
   background: color-mix(in srgb, var(--bg) 85%, transparent); border: 1px solid var(--rule); border-radius: var(--radius-sm);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(var(--glass-blur-sm));
   transition: transform var(--dur-1) var(--ease-out), border-color var(--dur-1);
 }
 .dialog__close:hover { border-color: var(--ink-muted); }
